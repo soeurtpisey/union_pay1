@@ -1,0 +1,23 @@
+//
+//  PrefixHeader.pch
+//  Runner
+//
+//  Created by 与梦信息的Mac on 2022/8/22.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
+
+#endif /* PrefixHeader_pch */

@@ -1,0 +1,19 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="cn.wecloud.im.wecloudchatkit_flutter">
+    <application>
+        <receiver
+            android:name="cn.wecloud.im.push.StartUpBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!-- 8.0以上隐式广播限制失效 -->
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <!-- 7.0以下使用，以上需要动态注册 -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="cn.wecloud.im.push.PushService" />
+    </application>
+</manifest>

@@ -1,0 +1,11 @@
+framework module WeCloudIMSDK {
+  umbrella header "WeCloudIMSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module WeCloudIMSDK.Swift {
+  header "WeCloudIMSDK-Swift.h"
+  requires objc
+}
