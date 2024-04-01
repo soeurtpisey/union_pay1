@@ -1,9 +1,11 @@
+import 'package:union_pay/pages/auth/forget_password_otp_page.dart';
 import 'package:union_pay/pages/auth/login_by_email_page.dart';
-import 'package:union_pay/pages/auth/reset_password_page.dart';
 import 'package:union_pay/pages/auth/verify_code_page.dart';
 import 'package:union_pay/pages/home/home_page.dart';
 import 'package:union_pay/pages/notification/notification_list_page.dart';
+import '../pages/auth/forget_password_page.dart';
 import '../pages/auth/register_by_email_page.dart';
+import '../pages/auth/select_country_code.dart';
 import '../pages/start_page.dart';
 import 'app_route.dart';
 import 'base_route.dart';
@@ -24,7 +26,7 @@ abstract class AppPages {
     ),
     WeGetPageBuilder.createCommonPage(
       name: AppModuleRoute.resetPasswordPage,
-      page: () => ResetPasswordPage(),
+      page: () => ForgetPasswordPage(),
     ),
     WeGetPageBuilder.createCommonPage(
       name: AppModuleRoute.verifyCodePage,
@@ -38,5 +40,10 @@ abstract class AppPages {
       name: AppModuleRoute.notificationListPage,
       page: () => NotificationListPage(),
     ),
+    WeGetPageBuilder.createCommonPage(
+      name: AppModuleRoute.resetPasswordOtpPage,
+      page: () => ForgetPasswordOTPPage(),
+    ),
+
   ];
 }

@@ -1,7 +1,8 @@
 class EmailVerifyModel{
 
-  final String email;
-  final String password;
+  String email;
+  String password;
+  bool isForgetPass;
 
-  EmailVerifyModel(this.email, this.password);
+  EmailVerifyModel({required this.email, required this.password, required this.isForgetPass});
 }

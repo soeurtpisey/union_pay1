@@ -1,17 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
-import 'package:union_pay/models/auth/email_verify_model.dart';
-import 'package:union_pay/models/auth/phone_verify_model.dart';
-import '../../route/app_route.dart';
-import '../../route/base_route.dart';
+import '../../http/net/http_exceptions.dart';
+import '../../repositories/user_repository.dart';
 import '../../constants/style.dart';
 import '../../generated/l10n.dart';
 import '../../helper/colors.dart';
 import '../../res/images_res.dart';
+import '../../route/app_route.dart';
+import '../../route/base_route.dart';
 import '../../widgets/app_input_textfield.dart';
 import '../../widgets/common.dart';
+import '../home/home_page.dart';
 
 class LoginByEmailPage extends StatefulWidget {
 
@@ -22,6 +24,7 @@ class LoginByEmailPage extends StatefulWidget {
 class _LoginByEmailPageState extends State<LoginByEmailPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final userRepository = UserRepository();
   FocusNode focusNode = FocusNode();
   String selectedCode = '855';
   bool showPhoneNumberClear = false;
@@ -30,7 +33,7 @@ class _LoginByEmailPageState extends State<LoginByEmailPage> {
   bool isSecureConfirmPass = true;
   bool isShowBtnLoading = false;
   bool isError = false;
-  String errorText = '';
+  String errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +64,7 @@ class _LoginByEmailPageState extends State<LoginByEmailPage> {
                               const EdgeInsets.only(left: 12, right: 8),
                               child: Image.asset(ImagesRes.PHONE_NUM_ERROR)),
                           cText(
-                            errorText,
+                            errorMessage,
                             color: AppColors.primaryColor,
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
@@ -113,8 +116,11 @@ class _LoginByEmailPageState extends State<LoginByEmailPage> {
                 children: [
                   Expanded(
                       child: InkWell(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
                           onTap: () {
-                            NavigatorUtils.jump(AppModuleRoute.verifyCodePage, arguments: EmailVerifyModel(emailController.text, passwordController.text));
+                            NavigatorUtils.jump(AppModuleRoute.resetPasswordOtpPage, arguments: false);
                           },
                           child: cText(S().forget_password, fontSize: 15, color: AppColors.primaryColor, textAlign: TextAlign.right)
                       )
@@ -149,14 +155,41 @@ class _LoginByEmailPageState extends State<LoginByEmailPage> {
     });
   }
 
-  void onClickNextButton() {
-    if (passwordController.text != '1234') {
+  void onClickNextButton() async {
       setState(() {
-        isError = true;
-        errorText = S().password_not_match;
+        isShowBtnLoading = true;
       });
-    } else {
-      NavigatorUtils.jump(AppModuleRoute.verifyCodePage, arguments: EmailVerifyModel(emailController.text, passwordController.text));
+      try {
+        var response = await userRepository.loginWithEmail(
+            email: emailController.text.removeAllWhitespace,
+            password: passwordController.text.removeAllWhitespace);
+        if (response != null) {
+          /// success -> go to home page
+          Get.to(HomePage());
+        } else {
+          setState(() {
+            isShowBtnLoading = false;
+            isError = true;
+          });
+        }
+      } catch (error) {
+        if (error is UnknownException) {
+          if (error.status == 'PWD_ERROR') {
+            errorMessage = S().password_incorrect;
+          } else if (error.status == 'ACCOUNT_NOT_FOUND') {
+            errorMessage = S().account_not_exits;
+          } else {
+            errorMessage = error.message;
+          }
+        }
+        setState(() {
+          isShowBtnLoading = false;
+          isError = true;
+        });
+      } finally {
+        setState(() {
+          isShowBtnLoading = false;
+        });
+      }
     }
-  }
 }

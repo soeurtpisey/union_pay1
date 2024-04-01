@@ -4,19 +4,15 @@ import '../../generated/json/user_info.g.dart';
 @JsonSerializable()
 class UserInfo {
   int? id;
-  String? avatar;
-  String? name;
+  String? email;
+  String? language;
   String? phone;
-  String? username;
-  bool? showPersonalPerformanceTab;
-  bool? showTeamPerformanceTab;
 
   UserInfo({
     this.id,
-    this.avatar,
-    this.name,
+    this.email,
+    this.language,
     this.phone,
-    this.username,
   });
 
   factory UserInfo.fromJson(Map<String, dynamic> json) =>

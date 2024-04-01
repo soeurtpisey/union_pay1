@@ -21,9 +21,9 @@ class _MinePageState extends State<MinePage> {
         padding: const EdgeInsets.only(left: 19, right: 19),
         child: Column(children: [
           const SizedBox(height: 25),
-          cText('+855 97 89 90 909 ', fontSize: 24, color: Colors.black),
+          cText('+${App.userInfo?.phone ?? ''}', fontSize: 24, color: Colors.black),
           const SizedBox(height: 5),
-          cText('ID: 1234567890123456789', color: AppColors.color79747E),
+          cText('ID: ${App.userInfo?.id}', color: AppColors.color79747E),
           const SizedBox(height: 16),
           Container(
             padding: const EdgeInsets.only(left: 16, right: 16),

@@ -3,12 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
 import 'package:union_pay/pages/auth/register_by_email_page.dart';
+import 'package:union_pay/pages/auth/select_country_code.dart';
 import '../../constants/style.dart';
 import '../../generated/l10n.dart';
 import '../../helper/colors.dart';
+import '../../http/net/http_exceptions.dart';
+import '../../repositories/prepaid_repository.dart';
+import '../../repositories/user_repository.dart';
 import '../../res/images_res.dart';
+import '../../route/app_route.dart';
+import '../../route/base_route.dart';
+import '../../utils/view_util.dart';
 import '../../widgets/app_input_textfield.dart';
 import '../../widgets/common.dart';
+import '../../widgets/country_selection/code_country.dart';
 import '../../widgets/prefix_icon.dart';
 import 'package:get/get.dart';
 
@@ -22,6 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
+  final userRepository = UserRepository();
   FocusNode focusNode = FocusNode();
   String selectedCode = '855';
   bool showPhoneNumberClear = false;
@@ -31,6 +40,26 @@ class _RegisterPageState extends State<RegisterPage> {
   bool isShowBtnLoading = false;
   bool isError = false;
   String errorText = '';
+  List<CountryCode> listCountry = [];
+  PrepaidRepository prepaidRepository = PrepaidRepository();
+
+  @override
+  void initState() {
+    getRegions();
+    super.initState();
+  }
+
+  void getRegions() async {
+    try {
+      var regions = await prepaidRepository.getCountryRegion();
+      setState(() {
+        listCountry.addAll(regions);
+      });
+    } catch (e) {
+      // error
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +122,24 @@ class _RegisterPageState extends State<RegisterPage> {
                     prefixFontSize: 16.0,
                     iconColor: AppColors.primaryColor,
                     content: '+' + selectedCode + ' ',
-                    onTap: () {}),
+                    onTap: () {
+                      showSheet(
+                          context,
+                          SelectCountryPage(
+                            onResult:
+                                (CountryCode value) {
+                              setState(() {
+                                selectedCode =
+                                    (value.dialCode ??
+                                        '')
+                                        .substring(1);
+                                // region =
+                                //     value.code ?? '';
+                              });
+                            },
+                            regions: listCountry,
+                          ));
+                    }),
 
                 suffixIcon: showPhoneNumberClear ? IconButton(
                   onPressed: () {
@@ -103,7 +149,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                   icon: const Icon(Icons.close, size: 22, color: AppColors.color79767D),
                 ) : null,
-                hintText: 'phone number',
+                hintText: S().label_phone_number.toLowerCase(),
                 hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -184,7 +230,6 @@ class _RegisterPageState extends State<RegisterPage> {
               margin: const EdgeInsets.only(top: 24.0),
               height: 42.0),
           btnWithLoading(
-              isLoading: isShowBtnLoading,
               title: S.current.register_by_email,
               margin: EdgeInsets.zero,
               backgroundColor: Colors.white,
@@ -209,12 +254,43 @@ class _RegisterPageState extends State<RegisterPage> {
     });
   }
 
-  void onClickRegisterButton() {
+  void onClickRegisterButton() async {
     if (passwordController.text != confirmPasswordController.text) {
       setState(() {
         isError = true;
         errorText = S().password_not_match;
       });
+    } else {
+      setState(() {
+        isShowBtnLoading = true;
+        isError = false;
+        errorText = '';
+      });
+      try {
+        var response = await userRepository.registerWithPhone(
+            password: passwordController.text.removeAllWhitespace,
+            phone: '+$selectedCode${phoneNumberController.text.removeAllWhitespace}');
+        if (response != null) {
+          NavigatorUtils.jump(AppModuleRoute.homePage);
+        }
+      } catch (error) {
+        print(error);
+        if (error is UnknownException) {
+          if (error.status == 'EXIT_REGISTER') {
+            errorText = error.message;
+          } else {
+            errorText = error.message;
+          }
+        }
+        setState(() {
+          isShowBtnLoading = false;
+          isError = true;
+        });
+      } finally {
+        setState(() {
+          isShowBtnLoading = false;
+        });
+      }
     }
 
   }

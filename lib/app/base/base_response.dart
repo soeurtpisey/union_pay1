@@ -3,23 +3,23 @@ import 'dart:convert';
 class ResponseData {
   ResponseData({
     this.data,
-    this.messageCode,
     this.message,
+    this.status,
   });
 
   factory ResponseData.fromJson(Map<String, dynamic> jsonRes) => ResponseData(
         data: jsonRes['data'],
-        messageCode: jsonRes['messageCode'],
+        status: jsonRes['status'],
         message: jsonRes['message'],
       );
 
   dynamic data;
-  String? messageCode;
+  String? status;
   String? message;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'data': data,
-        'status': messageCode,
+        'status': status,
         'message': message,
       };
   @override

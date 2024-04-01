@@ -5,10 +5,10 @@ class DefaultHttpTransformer extends HttpTransformer {
   @override
   HttpResponse parse(Response response) {
     ResponseData res = ResponseData.fromJson(response.data);
-    if (res.messageCode == '200') {
+    if (res.status?.toUpperCase() == 'OK') {
       return HttpResponse.success(res.data);
     } else {
-      return HttpResponse.failure(errorMsg: res.message, errorCode: res.messageCode);
+      return HttpResponse.failure(errorMsg: res.message, errorCode: res.status);
     }
   }
 

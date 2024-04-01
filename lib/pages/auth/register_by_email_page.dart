@@ -168,7 +168,8 @@ class _RegisterByEmailPageState extends State<RegisterByEmailPage> {
     try {
       var response = await userRepository.emailVerify(email: emailController.text);
       if (response != null) {
-        NavigatorUtils.jump(AppModuleRoute.verifyCodePage, arguments: EmailVerifyModel(emailController.text, passwordController.text));
+        NavigatorUtils.jump(AppModuleRoute.verifyCodePage,
+            arguments: EmailVerifyModel(email: emailController.text, password: passwordController.text, isForgetPass: false));
       }
     } catch (error) {
       print(error);

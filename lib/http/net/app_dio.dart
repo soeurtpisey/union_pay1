@@ -8,7 +8,6 @@ import 'dio_new.dart';
 
 /// Noted: Web not support to set PROXY
 class AppDio with DioMixin implements Dio {
-
   AppDio({BaseOptions? options, HttpConfig? dioConfig}) {
     options ??= BaseOptions(
       baseUrl: dioConfig?.baseUrl ?? "",
@@ -17,12 +16,10 @@ class AppDio with DioMixin implements Dio {
       sendTimeout: dioConfig?.sendTimeout,
       receiveTimeout: dioConfig?.receiveTimeout,
       headers: {
-        "Access-Control-Allow-Origin": "*", // Required for CORS support to work
-        "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
+        "lang": "EN"
       }
     );
     this.options = options;
-
     // DioCacheManager
     final cacheOptions = CacheOptions(
       // A default store is required for interceptor.

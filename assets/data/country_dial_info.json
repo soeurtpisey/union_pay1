@@ -1,0 +1,1970 @@
+[
+  {
+    "name": "Afghanistan",
+    "nameZh": "阿富汗",
+    "nameKm": "អាហ្វហ្កានីស្ថាន",
+    "code": "AF",
+    "dialCode": "+93",
+    "flagUri": "🇦🇫"
+  },
+  {
+    "name": "Åland Islands",
+    "nameZh": "奥兰群岛",
+    "nameKm": "កោះ​អាឡង់",
+    "code": "AX",
+    "dialCode": "+358",
+    "flagUri": "🇦🇽"
+  },
+  {
+    "name": "Albania",
+    "nameZh": "阿尔巴尼亚",
+    "nameKm": "អាល់បានី",
+    "code": "AL",
+    "dialCode": "+355",
+    "flagUri": "🇦🇱"
+  },
+  {
+    "name": "Algeria",
+    "nameZh": "阿尔及利亚",
+    "nameKm": "អាល់ហ្សេរី",
+    "code": "DZ",
+    "dialCode": "+213",
+    "flagUri": "🇩🇿"
+  },
+  {
+    "name": "American Samoa",
+    "nameZh": "美属萨摩亚",
+    "nameKm": "សាម័រ អាមេរិកាំង",
+    "code": "AS",
+    "dialCode": "+1684",
+    "flagUri": "🇦🇸"
+  },
+  {
+    "name": "Andorra",
+    "nameZh": "安道尔",
+    "nameKm": "អង់ដូរ៉ា",
+    "code": "AD",
+    "dialCode": "+376",
+    "flagUri": "🇦🇩"
+  },
+  {
+    "name": "Angola",
+    "nameZh": "安哥拉",
+    "nameKm": "អង់ហ្គោឡា",
+    "code": "AO",
+    "dialCode": "+244",
+    "flagUri": "🇦🇴"
+  },
+  {
+    "name": "Anguilla",
+    "nameZh": "安圭拉",
+    "nameKm": "អង់ហ្គីឡា",
+    "code": "AI",
+    "dialCode": "+1264",
+    "flagUri": "🇦🇮"
+  },
+  {
+    "name": "Antarctica",
+    "nameZh": null,
+    "nameKm": null,
+    "code": "AQ",
+    "dialCode": "+672",
+    "flagUri": "🇦🇶"
+  },
+  {
+    "name": "Antigua and Barbuda",
+    "nameZh": "安提瓜和巴布达",
+    "nameKm": "អង់ទីហ្គា និង បាប៊ុយដា",
+    "code": "AG",
+    "dialCode": "+1268",
+    "flagUri": "🇦🇬"
+  },
+  {
+    "name": "Argentina",
+    "nameZh": "阿根廷",
+    "nameKm": "អាហ្សង់ទីន",
+    "code": "AR",
+    "dialCode": "+54",
+    "flagUri": "🇦🇷"
+  },
+  {
+    "name": "Armenia",
+    "nameZh": "亚美尼亚",
+    "nameKm": "អាមេនី",
+    "code": "AM",
+    "dialCode": "+374",
+    "flagUri": "🇦🇲"
+  },
+  {
+    "name": "Aruba",
+    "nameZh": "阿鲁巴",
+    "nameKm": "អារូបា",
+    "code": "AW",
+    "dialCode": "+297",
+    "flagUri": "🇦🇼"
+  },
+  {
+    "name": "Australia",
+    "nameZh": "澳大利亚",
+    "nameKm": "អូស្ត្រាលី",
+    "code": "AU",
+    "dialCode": "+61",
+    "flagUri": "🇦🇺"
+  },
+  {
+    "name": "Austria",
+    "nameZh": "奥地利",
+    "nameKm": "អូទ្រីស",
+    "code": "AT",
+    "dialCode": "+43",
+    "flagUri": "🇦🇹"
+  },
+  {
+    "name": "Azerbaijan",
+    "nameZh": "阿塞拜疆",
+    "nameKm": "អាស៊ែបៃហ្សង់",
+    "code": "AZ",
+    "dialCode": "+994",
+    "flagUri": "🇦🇿"
+  },
+  {
+    "name": "Bahamas",
+    "nameZh": "巴哈马",
+    "nameKm": "បាហាម៉ា",
+    "code": "BS",
+    "dialCode": "+1242",
+    "flagUri": "🇧🇸"
+  },
+  {
+    "name": "Bahrain",
+    "nameZh": "巴林",
+    "nameKm": "បារ៉ែន",
+    "code": "BH",
+    "dialCode": "+973",
+    "flagUri": "🇧🇭"
+  },
+  {
+    "name": "Bangladesh",
+    "nameZh": "孟加拉国",
+    "nameKm": "បង់ក្លាដែស",
+    "code": "BD",
+    "dialCode": "+880",
+    "flagUri": "🇧🇩"
+  },
+  {
+    "name": "Barbados",
+    "nameZh": "巴巴多斯",
+    "nameKm": "បាបាដុស",
+    "code": "BB",
+    "dialCode": "+1246",
+    "flagUri": "🇧🇧"
+  },
+  {
+    "name": "Belarus",
+    "nameZh": "白俄罗斯",
+    "nameKm": "បេឡារុស",
+    "code": "BY",
+    "dialCode": "+375",
+    "flagUri": "🇧🇾"
+  },
+  {
+    "name": "Belgium",
+    "nameZh": "比利时",
+    "nameKm": "បែលហ្ស៊ិក",
+    "code": "BE",
+    "dialCode": "+32",
+    "flagUri": "🇧🇪"
+  },
+  {
+    "name": "Belize",
+    "nameZh": "伯利兹",
+    "nameKm": "បេលី",
+    "code": "BZ",
+    "dialCode": "+501",
+    "flagUri": "🇧🇿"
+  },
+  {
+    "name": "Benin",
+    "nameZh": "贝宁",
+    "nameKm": "បេណាំង",
+    "code": "BJ",
+    "dialCode": "+229",
+    "flagUri": "🇧🇯"
+  },
+  {
+    "name": "Bermuda",
+    "nameZh": "百慕大",
+    "nameKm": "ប៊ឺមុយដា",
+    "code": "BM",
+    "dialCode": "+1441",
+    "flagUri": "🇧🇲"
+  },
+  {
+    "name": "Bhutan",
+    "nameZh": "不丹",
+    "nameKm": "ប៊ូតង់",
+    "code": "BT",
+    "dialCode": "+975",
+    "flagUri": "🇧🇹"
+  },
+  {
+    "name": "Bolivia, Plurinational State of bolivia",
+    "nameZh": "玻利维亚",
+    "nameKm": "បូលីវី",
+    "code": "BO",
+    "dialCode": "+591",
+    "flagUri": "🇧🇴"
+  },
+  {
+    "name": "Bosnia and Herzegovina",
+    "nameZh": "波斯尼亚和黑塞哥维那",
+    "nameKm": "បូស្ន៊ី និងហឺហ្ស៊ីហ្គូវីណា",
+    "code": "BA",
+    "dialCode": "+387",
+    "flagUri": "🇧🇦"
+  },
+  {
+    "name": "Botswana",
+    "nameZh": "博茨瓦纳",
+    "nameKm": "បុតស្វាណា",
+    "code": "BW",
+    "dialCode": "+267",
+    "flagUri": "🇧🇼"
+  },
+  {
+    "name": "Bouvet Island",
+    "nameZh": null,
+    "nameKm": null,
+    "code": "BV",
+    "dialCode": "+47",
+    "flagUri": "🇧🇻"
+  },
+  {
+    "name": "Brazil",
+    "nameZh": "巴西",
+    "nameKm": "ប្រេស៊ីល",
+    "code": "BR",
+    "dialCode": "+55",
+    "flagUri": "🇧🇷"
+  },
+  {
+    "name": "British Indian Ocean Territory",
+    "nameZh": "查戈斯群岛",
+    "nameKm": "ដែនដី​អង់គ្លេស​នៅ​មហា​សមុទ្រ​ឥណ្ឌា",
+    "code": "IO",
+    "dialCode": "+246",
+    "flagUri": "🇮🇴"
+  },
+  {
+    "name": "Brunei Darussalam",
+    "nameZh": "文莱",
+    "nameKm": "ព្រុយណេ",
+    "code": "BN",
+    "dialCode": "+673",
+    "flagUri": "🇧🇳"
+  },
+  {
+    "name": "Bulgaria",
+    "nameZh": "保加利亚",
+    "nameKm": "ប៊ុលហ្ការី",
+    "code": "BG",
+    "dialCode": "+359",
+    "flagUri": "🇧🇬"
+  },
+  {
+    "name": "Burkina Faso",
+    "nameZh": "布基纳法索",
+    "nameKm": "បួគីណាហ្វាសូ",
+    "code": "BF",
+    "dialCode": "+226",
+    "flagUri": "🇧🇫"
+  },
+  {
+    "name": "Burundi",
+    "nameZh": "布隆迪",
+    "nameKm": "ប៊ូរុនឌី",
+    "code": "BI",
+    "dialCode": "+257",
+    "flagUri": "🇧🇮"
+  },
+  {
+    "name": "Cambodia",
+    "nameZh": "柬埔寨",
+    "nameKm": "កម្ពុជា",
+    "code": "KH",
+    "dialCode": "+855",
+    "flagUri": "🇰🇭"
+  },
+  {
+    "name": "Cameroon",
+    "nameZh": "喀麦隆",
+    "nameKm": "កាមេរូន",
+    "code": "CM",
+    "dialCode": "+237",
+    "flagUri": "🇨🇲"
+  },
+  {
+    "name": "Canada",
+    "nameZh": "加拿大",
+    "nameKm": "កាណាដា",
+    "code": "CA",
+    "dialCode": "+1",
+    "flagUri": "🇨🇦"
+  },
+  {
+    "name": "Cape Verde",
+    "nameZh": "佛得角",
+    "nameKm": "កាប់វែរ",
+    "code": "CV",
+    "dialCode": "+238",
+    "flagUri": "🇨🇻"
+  },
+  {
+    "name": "Cayman Islands",
+    "nameZh": "开曼群岛",
+    "nameKm": "កោះ​កៃម៉ង់",
+    "code": "KY",
+    "dialCode": "+345",
+    "flagUri": "🇰🇾"
+  },
+  {
+    "name": "Central African Republic",
+    "nameZh": "中非共和国",
+    "nameKm": "សាធារណរដ្ឋអាហ្វ្រិកកណ្ដាល",
+    "code": "CF",
+    "dialCode": "+236",
+    "flagUri": "🇨🇫"
+  },
+  {
+    "name": "Chad",
+    "nameZh": "乍得",
+    "nameKm": "ឆាដ",
+    "code": "TD",
+    "dialCode": "+235",
+    "flagUri": "🇹🇩"
+  },
+  {
+    "name": "Chile",
+    "nameZh": "智利",
+    "nameKm": "ស៊ីលី",
+    "code": "CL",
+    "dialCode": "+56",
+    "flagUri": "🇨🇱"
+  },
+  {
+    "name": "China",
+    "nameZh": "中国",
+    "nameKm": "ចិន",
+    "code": "CN",
+    "dialCode": "+86",
+    "flagUri": "🇨🇳"
+  },
+  {
+    "name": "Christmas Island",
+    "nameZh": "圣诞岛",
+    "nameKm": "កោះ​គ្រីស្មាស",
+    "code": "CX",
+    "dialCode": "+61",
+    "flagUri": "🇨🇽"
+  },
+  {
+    "name": "Cocos (Keeling) Islands",
+    "nameZh": "科科斯（基林）群岛",
+    "nameKm": "កោះ​កូកូស (គីលីង)",
+    "code": "CC",
+    "dialCode": "+61",
+    "flagUri": "🇨🇨"
+  },
+  {
+    "name": "Colombia",
+    "nameZh": "哥伦比亚",
+    "nameKm": "កូឡុំប៊ី",
+    "code": "CO",
+    "dialCode": "+57",
+    "flagUri": "🇨🇴"
+  },
+  {
+    "name": "Comoros",
+    "nameZh": "科摩罗",
+    "nameKm": "កូម័រ",
+    "code": "KM",
+    "dialCode": "+269",
+    "flagUri": "🇰🇲"
+  },
+  {
+    "name": "Congo",
+    "nameZh": "刚果（布）",
+    "nameKm": "កុងហ្គោ - ប្រាហ្សាវីល",
+    "code": "CG",
+    "dialCode": "+242",
+    "flagUri": "🇨🇬"
+  },
+  {
+    "name": "Congo, The Democratic Republic of the Congo",
+    "nameZh": "刚果（金）",
+    "nameKm": "កុងហ្គោ- គីនស្ហាសា",
+    "code": "CD",
+    "dialCode": "+243",
+    "flagUri": "🇨🇩"
+  },
+  {
+    "name": "Cook Islands",
+    "nameZh": "库克群岛",
+    "nameKm": "កោះ​ខូក",
+    "code": "CK",
+    "dialCode": "+682",
+    "flagUri": "🇨🇰"
+  },
+  {
+    "name": "Costa Rica",
+    "nameZh": "哥斯达黎加",
+    "nameKm": "កូស្តារីកា",
+    "code": "CR",
+    "dialCode": "+506",
+    "flagUri": "🇨🇷"
+  },
+  {
+    "name": "Cote d'Ivoire",
+    "nameZh": "科特迪瓦",
+    "nameKm": "កូតឌីវ័រ",
+    "code": "CI",
+    "dialCode": "+225",
+    "flagUri": "🇨🇮"
+  },
+  {
+    "name": "Croatia",
+    "nameZh": "克罗地亚",
+    "nameKm": "ក្រូអាស៊ី",
+    "code": "HR",
+    "dialCode": "+385",
+    "flagUri": "🇭🇷"
+  },
+  {
+    "name": "Cuba",
+    "nameZh": "古巴",
+    "nameKm": "គុយបា",
+    "code": "CU",
+    "dialCode": "+53",
+    "flagUri": "🇨🇺"
+  },
+  {
+    "name": "Cyprus",
+    "nameZh": "塞浦路斯",
+    "nameKm": "ស៊ីប",
+    "code": "CY",
+    "dialCode": "+357",
+    "flagUri": "🇨🇾"
+  },
+  {
+    "name": "Czech Republic",
+    "nameZh": "捷克",
+    "nameKm": "ឆែក",
+    "code": "CZ",
+    "dialCode": "+420",
+    "flagUri": "🇨🇿"
+  },
+  {
+    "name": "Denmark",
+    "nameZh": "丹麦",
+    "nameKm": "ដាណឺម៉ាក",
+    "code": "DK",
+    "dialCode": "+45",
+    "flagUri": "🇩🇰"
+  },
+  {
+    "name": "Djibouti",
+    "nameZh": "吉布提",
+    "nameKm": "ជីប៊ូទី",
+    "code": "DJ",
+    "dialCode": "+253",
+    "flagUri": "🇩🇯"
+  },
+  {
+    "name": "Dominica",
+    "nameZh": "多米尼克",
+    "nameKm": "ដូមីនីក",
+    "code": "DM",
+    "dialCode": "+1767",
+    "flagUri": "🇩🇲"
+  },
+  {
+    "name": "Dominican Republic",
+    "nameZh": "多米尼加共和国",
+    "nameKm": "សាធារណរដ្ឋ​ដូមីនីក",
+    "code": "DO",
+    "dialCode": "+1849",
+    "flagUri": "🇩🇴"
+  },
+  {
+    "name": "Ecuador",
+    "nameZh": "厄瓜多尔",
+    "nameKm": "អេក្វាទ័រ",
+    "code": "EC",
+    "dialCode": "+593",
+    "flagUri": "🇪🇨"
+  },
+  {
+    "name": "Egypt",
+    "nameZh": "埃及",
+    "nameKm": "អេហ្ស៊ីប",
+    "code": "EG",
+    "dialCode": "+20",
+    "flagUri": "🇪🇬"
+  },
+  {
+    "name": "El Salvador",
+    "nameZh": "萨尔瓦多",
+    "nameKm": "អែលសាល់វ៉ាឌ័រ",
+    "code": "SV",
+    "dialCode": "+503",
+    "flagUri": "🇸🇻"
+  },
+  {
+    "name": "Equatorial Guinea",
+    "nameZh": "赤道几内亚",
+    "nameKm": "ហ្គីណេអេក្វាទ័រ",
+    "code": "GQ",
+    "dialCode": "+240",
+    "flagUri": "🇬🇶"
+  },
+  {
+    "name": "Eritrea",
+    "nameZh": "厄立特里亚",
+    "nameKm": "អេរីត្រេ",
+    "code": "ER",
+    "dialCode": "+291",
+    "flagUri": "🇪🇷"
+  },
+  {
+    "name": "Estonia",
+    "nameZh": "爱沙尼亚",
+    "nameKm": "អេស្តូនី",
+    "code": "EE",
+    "dialCode": "+372",
+    "flagUri": "🇪🇪"
+  },
+  {
+    "name": "Ethiopia",
+    "nameZh": "埃塞俄比亚",
+    "nameKm": "អេត្យូពី",
+    "code": "ET",
+    "dialCode": "+251",
+    "flagUri": "🇪🇹"
+  },
+  {
+    "name": "Falkland Islands (Malvinas)",
+    "nameZh": "福克兰群岛",
+    "nameKm": "កោះ​ហ្វក់ឡែន",
+    "code": "FK",
+    "dialCode": "+500",
+    "flagUri": "🇫🇰"
+  },
+  {
+    "name": "Faroe Islands",
+    "nameZh": "法罗群岛",
+    "nameKm": "កោះ​ហ្វារ៉ូ",
+    "code": "FO",
+    "dialCode": "+298",
+    "flagUri": "🇫🇴"
+  },
+  {
+    "name": "Fiji",
+    "nameZh": "斐济",
+    "nameKm": "ហ្វីជី",
+    "code": "FJ",
+    "dialCode": "+679",
+    "flagUri": "🇫🇯"
+  },
+  {
+    "name": "Finland",
+    "nameZh": "芬兰",
+    "nameKm": "ហ្វាំងឡង់",
+    "code": "FI",
+    "dialCode": "+358",
+    "flagUri": "🇫🇮"
+  },
+  {
+    "name": "France",
+    "nameZh": "法国",
+    "nameKm": "បារាំង",
+    "code": "FR",
+    "dialCode": "+33",
+    "flagUri": "🇫🇷"
+  },
+  {
+    "name": "French Guiana",
+    "nameZh": "法属圭亚那",
+    "nameKm": "ហ្គីអាណា បារាំង",
+    "code": "GF",
+    "dialCode": "+594",
+    "flagUri": "🇬🇫"
+  },
+  {
+    "name": "French Polynesia",
+    "nameZh": "法属波利尼西亚",
+    "nameKm": "ប៉ូលី​ណេស៊ី​បារាំង",
+    "code": "PF",
+    "dialCode": "+689",
+    "flagUri": "🇵🇫"
+  },
+  {
+    "name": "French Southern Territories",
+    "nameZh": null,
+    "nameKm": null,
+    "code": "TF",
+    "dialCode": "+262",
+    "flagUri": "🇹🇫"
+  },
+  {
+    "name": "Gabon",
+    "nameZh": "加蓬",
+    "nameKm": "ហ្គាបុង",
+    "code": "GA",
+    "dialCode": "+241",
+    "flagUri": "🇬🇦"
+  },
+  {
+    "name": "Gambia",
+    "nameZh": "冈比亚",
+    "nameKm": "ហ្គំប៊ី",
+    "code": "GM",
+    "dialCode": "+220",
+    "flagUri": "🇬🇲"
+  },
+  {
+    "name": "Georgia",
+    "nameZh": "格鲁吉亚",
+    "nameKm": "ហ្សកហ្ស៊ី",
+    "code": "GE",
+    "dialCode": "+995",
+    "flagUri": "🇬🇪"
+  },
+  {
+    "name": "Germany",
+    "nameZh": "德国",
+    "nameKm": "អាល្លឺម៉ង់",
+    "code": "DE",
+    "dialCode": "+49",
+    "flagUri": "🇩🇪"
+  },
+  {
+    "name": "Ghana",
+    "nameZh": "加纳",
+    "nameKm": "ហ្គាណា",
+    "code": "GH",
+    "dialCode": "+233",
+    "flagUri": "🇬🇭"
+  },
+  {
+    "name": "Gibraltar",
+    "nameZh": "直布罗陀",
+    "nameKm": "ហ្ស៊ីប្រាល់តា",
+    "code": "GI",
+    "dialCode": "+350",
+    "flagUri": "🇬🇮"
+  },
+  {
+    "name": "Greece",
+    "nameZh": "希腊",
+    "nameKm": "ក្រិក",
+    "code": "GR",
+    "dialCode": "+30",
+    "flagUri": "🇬🇷"
+  },
+  {
+    "name": "Greenland",
+    "nameZh": "格陵兰",
+    "nameKm": "ហ្គ្រោអង់ឡង់",
+    "code": "GL",
+    "dialCode": "+299",
+    "flagUri": "🇬🇱"
+  },
+  {
+    "name": "Grenada",
+    "nameZh": "格林纳达",
+    "nameKm": "ហ្គ្រើណាដ",
+    "code": "GD",
+    "dialCode": "+1473",
+    "flagUri": "🇬🇩"
+  },
+  {
+    "name": "Guadeloupe",
+    "nameZh": "瓜德罗普",
+    "nameKm": "ហ្គោដឺឡុប",
+    "code": "GP",
+    "dialCode": "+590",
+    "flagUri": "🇬🇵"
+  },
+  {
+    "name": "Guam",
+    "nameZh": "关岛",
+    "nameKm": "ហ្គាំ",
+    "code": "GU",
+    "dialCode": "+1671",
+    "flagUri": "🇬🇺"
+  },
+  {
+    "name": "Guatemala",
+    "nameZh": "危地马拉",
+    "nameKm": "ក្វាតេម៉ាឡា",
+    "code": "GT",
+    "dialCode": "+502",
+    "flagUri": "🇬🇹"
+  },
+  {
+    "name": "Guernsey",
+    "nameZh": "根西岛",
+    "nameKm": "ហ្គេនស៊ី",
+    "code": "GG",
+    "dialCode": "+44",
+    "flagUri": "🇬🇬"
+  },
+  {
+    "name": "Guinea",
+    "nameZh": "几内亚",
+    "nameKm": "ហ្គីណេ",
+    "code": "GN",
+    "dialCode": "+224",
+    "flagUri": "🇬🇳"
+  },
+  {
+    "name": "Guinea-Bissau",
+    "nameZh": "几内亚比绍",
+    "nameKm": "ហ្គីណេប៊ីស្សូ",
+    "code": "GW",
+    "dialCode": "+245",
+    "flagUri": "🇬🇼"
+  },
+  {
+    "name": "Guyana",
+    "nameZh": "圭亚那",
+    "nameKm": "ហ្គីយ៉ាន",
+    "code": "GY",
+    "dialCode": "+592",
+    "flagUri": "🇬🇾"
+  },
+  {
+    "name": "Haiti",
+    "nameZh": "海地",
+    "nameKm": "ហៃទី",
+    "code": "HT",
+    "dialCode": "+509",
+    "flagUri": "🇭🇹"
+  },
+  {
+    "name": "Heard Island and Mcdonald Islands",
+    "nameZh": null,
+    "nameKm": null,
+    "code": "HM",
+    "dialCode": "+672",
+    "flagUri": "🇭🇲"
+  },
+  {
+    "name": "Holy See (Vatican City State)",
+    "nameZh": "梵蒂冈",
+    "nameKm": "បុរី​វ៉ាទីកង់",
+    "code": "VA",
+    "dialCode": "+379",
+    "flagUri": "🇻🇦"
+  },
+  {
+    "name": "Honduras",
+    "nameZh": "洪都拉斯",
+    "nameKm": "ហុងឌូរ៉ាស",
+    "code": "HN",
+    "dialCode": "+504",
+    "flagUri": "🇭🇳"
+  },
+  {
+    "name": "Hong Kong",
+    "nameZh": "香港",
+    "nameKm": "ហុងកុង",
+    "code": "HK",
+    "dialCode": "+852",
+    "flagUri": "🇭🇰"
+  },
+  {
+    "name": "Hungary",
+    "nameZh": "匈牙利",
+    "nameKm": "ហុងគ្រី",
+    "code": "HU",
+    "dialCode": "+36",
+    "flagUri": "🇭🇺"
+  },
+  {
+    "name": "Iceland",
+    "nameZh": "冰岛",
+    "nameKm": "អ៊ីស្លង់",
+    "code": "IS",
+    "dialCode": "+354",
+    "flagUri": "🇮🇸"
+  },
+  {
+    "name": "India",
+    "nameZh": "印度",
+    "nameKm": "ឥណ្ឌា",
+    "code": "IN",
+    "dialCode": "+91",
+    "flagUri": "🇮🇳"
+  },
+  {
+    "name": "Indonesia",
+    "nameZh": "印度尼西亚",
+    "nameKm": "ឥណ្ឌូណេស៊ី",
+    "code": "ID",
+    "dialCode": "+62",
+    "flagUri": "🇮🇩"
+  },
+  {
+    "name": "Iran, Islamic Republic of Persian Gulf",
+    "nameZh": "伊朗",
+    "nameKm": "អ៊ីរ៉ង់",
+    "code": "IR",
+    "dialCode": "+98",
+    "flagUri": "🇮🇷"
+  },
+  {
+    "name": "Iraq",
+    "nameZh": "伊拉克",
+    "nameKm": "អ៊ីរ៉ាក់",
+    "code": "IQ",
+    "dialCode": "+964",
+    "flagUri": "🇮🇶"
+  },
+  {
+    "name": "Ireland",
+    "nameZh": "爱尔兰",
+    "nameKm": "អៀរឡង់",
+    "code": "IE",
+    "dialCode": "+353",
+    "flagUri": "🇮🇪"
+  },
+  {
+    "name": "Isle of Man",
+    "nameZh": "马恩岛",
+    "nameKm": "អែលអុហ្វមែន",
+    "code": "IM",
+    "dialCode": "+44",
+    "flagUri": "🇮🇲"
+  },
+  {
+    "name": "Israel",
+    "nameZh": "以色列",
+    "nameKm": "អ៊ីស្រាអែល",
+    "code": "IL",
+    "dialCode": "+972",
+    "flagUri": "🇮🇱"
+  },
+  {
+    "name": "Italy",
+    "nameZh": "意大利",
+    "nameKm": "អ៊ីតាលី",
+    "code": "IT",
+    "dialCode": "+39",
+    "flagUri": "🇮🇹"
+  },
+  {
+    "name": "Jamaica",
+    "nameZh": "牙买加",
+    "nameKm": "ហ្សាម៉ាអ៊ីក",
+    "code": "JM",
+    "dialCode": "+1876",
+    "flagUri": "🇯🇲"
+  },
+  {
+    "name": "Japan",
+    "nameZh": "日本",
+    "nameKm": "ជប៉ុន",
+    "code": "JP",
+    "dialCode": "+81",
+    "flagUri": "🇯🇵"
+  },
+  {
+    "name": "Jersey",
+    "nameZh": "泽西岛",
+    "nameKm": "ជើស៊ី",
+    "code": "JE",
+    "dialCode": "+44",
+    "flagUri": "🇯🇪"
+  },
+  {
+    "name": "Jordan",
+    "nameZh": "约旦",
+    "nameKm": "ហ៊្សកដានី",
+    "code": "JO",
+    "dialCode": "+962",
+    "flagUri": "🇯🇴"
+  },
+  {
+    "name": "Kazakhstan",
+    "nameZh": "哈萨克斯坦",
+    "nameKm": "កាហ្សាក់ស្ថាន",
+    "code": "KZ",
+    "dialCode": "+7",
+    "flagUri": "🇰🇿"
+  },
+  {
+    "name": "Kenya",
+    "nameZh": "肯尼亚",
+    "nameKm": "កេនយ៉ា",
+    "code": "KE",
+    "dialCode": "+254",
+    "flagUri": "🇰🇪"
+  },
+  {
+    "name": "Kiribati",
+    "nameZh": "基里巴斯",
+    "nameKm": "គិរីបាទី",
+    "code": "KI",
+    "dialCode": "+686",
+    "flagUri": "🇰🇮"
+  },
+  {
+    "name": "Korea, Democratic People's Republic of Korea",
+    "nameZh": "朝鲜",
+    "nameKm": "កូរ៉េ​ខាង​ជើង",
+    "code": "KP",
+    "dialCode": "+850",
+    "flagUri": "🇰🇵"
+  },
+  {
+    "name": "Korea, Republic of South Korea",
+    "nameZh": "韩国",
+    "nameKm": "កូរ៉េ​ខាង​ត្បូង",
+    "code": "KR",
+    "dialCode": "+82",
+    "flagUri": "🇰🇷"
+  },
+  {
+    "name": "Kosovo",
+    "nameZh": "科索沃",
+    "nameKm": "កូសូវ៉ូ",
+    "code": "XK",
+    "dialCode": "+383",
+    "flagUri": "🇽🇰"
+  },
+  {
+    "name": "Kuwait",
+    "nameZh": "科威特",
+    "nameKm": "កូវ៉ែត",
+    "code": "KW",
+    "dialCode": "+965",
+    "flagUri": "🇰🇼"
+  },
+  {
+    "name": "Kyrgyzstan",
+    "nameZh": "吉尔吉斯斯坦",
+    "nameKm": "កៀហ្ស៊ីស៊ីស្ថាន",
+    "code": "KG",
+    "dialCode": "+996",
+    "flagUri": "🇰🇬"
+  },
+  {
+    "name": "Laos",
+    "nameZh": "老挝",
+    "nameKm": "ឡាវ",
+    "code": "LA",
+    "dialCode": "+856",
+    "flagUri": "🇱🇦"
+  },
+  {
+    "name": "Latvia",
+    "nameZh": "拉脱维亚",
+    "nameKm": "ឡេតូនី",
+    "code": "LV",
+    "dialCode": "+371",
+    "flagUri": "🇱🇻"
+  },
+  {
+    "name": "Lebanon",
+    "nameZh": "黎巴嫩",
+    "nameKm": "លីបង់",
+    "code": "LB",
+    "dialCode": "+961",
+    "flagUri": "🇱🇧"
+  },
+  {
+    "name": "Lesotho",
+    "nameZh": "莱索托",
+    "nameKm": "ឡេសូតូ",
+    "code": "LS",
+    "dialCode": "+266",
+    "flagUri": "🇱🇸"
+  },
+  {
+    "name": "Liberia",
+    "nameZh": "利比里亚",
+    "nameKm": "លីបេរីយ៉ា",
+    "code": "LR",
+    "dialCode": "+231",
+    "flagUri": "🇱🇷"
+  },
+  {
+    "name": "Libyan Arab Jamahiriya",
+    "nameZh": "利比亚",
+    "nameKm": "លីប៊ី",
+    "code": "LY",
+    "dialCode": "+218",
+    "flagUri": "🇱🇾"
+  },
+  {
+    "name": "Liechtenstein",
+    "nameZh": "列支敦士登",
+    "nameKm": "លិចតិនស្ដាញ",
+    "code": "LI",
+    "dialCode": "+423",
+    "flagUri": "🇱🇮"
+  },
+  {
+    "name": "Lithuania",
+    "nameZh": "立陶宛",
+    "nameKm": "លីទុយអានី",
+    "code": "LT",
+    "dialCode": "+370",
+    "flagUri": "🇱🇹"
+  },
+  {
+    "name": "Luxembourg",
+    "nameZh": "卢森堡",
+    "nameKm": "លុចសំបួ",
+    "code": "LU",
+    "dialCode": "+352",
+    "flagUri": "🇱🇺"
+  },
+  {
+    "name": "Macao",
+    "nameZh": "澳门",
+    "nameKm": "ម៉ាកាវ",
+    "code": "MO",
+    "dialCode": "+853",
+    "flagUri": "🇲🇴"
+  },
+  {
+    "name": "Macedonia",
+    "nameZh": "北马其顿",
+    "nameKm": "ម៉ាសេដ្វានខាងជើង",
+    "code": "MK",
+    "dialCode": "+389",
+    "flagUri": "🇲🇰"
+  },
+  {
+    "name": "Madagascar",
+    "nameZh": "马达加斯加",
+    "nameKm": "ម៉ាដាហ្គាស្កា",
+    "code": "MG",
+    "dialCode": "+261",
+    "flagUri": "🇲🇬"
+  },
+  {
+    "name": "Malawi",
+    "nameZh": "马拉维",
+    "nameKm": "ម៉ាឡាវី",
+    "code": "MW",
+    "dialCode": "+265",
+    "flagUri": "🇲🇼"
+  },
+  {
+    "name": "Malaysia",
+    "nameZh": "马来西亚",
+    "nameKm": "ម៉ាឡេស៊ី",
+    "code": "MY",
+    "dialCode": "+60",
+    "flagUri": "🇲🇾"
+  },
+  {
+    "name": "Maldives",
+    "nameZh": "马尔代夫",
+    "nameKm": "ម៉ាល់ឌីវ",
+    "code": "MV",
+    "dialCode": "+960",
+    "flagUri": "🇲🇻"
+  },
+  {
+    "name": "Mali",
+    "nameZh": "马里",
+    "nameKm": "ម៉ាលី",
+    "code": "ML",
+    "dialCode": "+223",
+    "flagUri": "🇲🇱"
+  },
+  {
+    "name": "Malta",
+    "nameZh": "马耳他",
+    "nameKm": "ម៉ាល់ត៍",
+    "code": "MT",
+    "dialCode": "+356",
+    "flagUri": "🇲🇹"
+  },
+  {
+    "name": "Marshall Islands",
+    "nameZh": "马绍尔群岛",
+    "nameKm": "កោះ​ម៉ាស់សល",
+    "code": "MH",
+    "dialCode": "+692",
+    "flagUri": "🇲🇭"
+  },
+  {
+    "name": "Martinique",
+    "nameZh": "马提尼克",
+    "nameKm": "ម៉ាទីនីក",
+    "code": "MQ",
+    "dialCode": "+596",
+    "flagUri": "🇲🇶"
+  },
+  {
+    "name": "Mauritania",
+    "nameZh": "毛里塔尼亚",
+    "nameKm": "ម៉ូរីតានី",
+    "code": "MR",
+    "dialCode": "+222",
+    "flagUri": "🇲🇷"
+  },
+  {
+    "name": "Mauritius",
+    "nameZh": "毛里求斯",
+    "nameKm": "ម៉ូរីស",
+    "code": "MU",
+    "dialCode": "+230",
+    "flagUri": "🇲🇺"
+  },
+  {
+    "name": "Mayotte",
+    "nameZh": "马约特",
+    "nameKm": "ម៉ាយុត",
+    "code": "YT",
+    "dialCode": "+262",
+    "flagUri": "🇾🇹"
+  },
+  {
+    "name": "Mexico",
+    "nameZh": "墨西哥",
+    "nameKm": "ម៉ិកស៊ិក",
+    "code": "MX",
+    "dialCode": "+52",
+    "flagUri": "🇲🇽"
+  },
+  {
+    "name": "Micronesia, Federated States of Micronesia",
+    "nameZh": "密克罗尼西亚",
+    "nameKm": "មីក្រូណេស៊ី",
+    "code": "FM",
+    "dialCode": "+691",
+    "flagUri": "🇫🇲"
+  },
+  {
+    "name": "Moldova",
+    "nameZh": "摩尔多瓦",
+    "nameKm": "ម៉ុលដាវី",
+    "code": "MD",
+    "dialCode": "+373",
+    "flagUri": "🇲🇩"
+  },
+  {
+    "name": "Monaco",
+    "nameZh": "摩纳哥",
+    "nameKm": "ម៉ូណាកូ",
+    "code": "MC",
+    "dialCode": "+377",
+    "flagUri": "🇲🇨"
+  },
+  {
+    "name": "Mongolia",
+    "nameZh": "蒙古",
+    "nameKm": "ម៉ុងហ្គោលី",
+    "code": "MN",
+    "dialCode": "+976",
+    "flagUri": "🇲🇳"
+  },
+  {
+    "name": "Montenegro",
+    "nameZh": "黑山",
+    "nameKm": "ម៉ុងតេណេហ្គ្រោ",
+    "code": "ME",
+    "dialCode": "+382",
+    "flagUri": "🇲🇪"
+  },
+  {
+    "name": "Montserrat",
+    "nameZh": "蒙特塞拉特",
+    "nameKm": "ម៉ុងស៊ែរ៉ា",
+    "code": "MS",
+    "dialCode": "+1664",
+    "flagUri": "🇲🇸"
+  },
+  {
+    "name": "Morocco",
+    "nameZh": "摩洛哥",
+    "nameKm": "ម៉ារ៉ុក",
+    "code": "MA",
+    "dialCode": "+212",
+    "flagUri": "🇲🇦"
+  },
+  {
+    "name": "Mozambique",
+    "nameZh": "莫桑比克",
+    "nameKm": "ម៉ូសំប៊ិក",
+    "code": "MZ",
+    "dialCode": "+258",
+    "flagUri": "🇲🇿"
+  },
+  {
+    "name": "Myanmar",
+    "nameZh": "缅甸",
+    "nameKm": "មីយ៉ាន់ម៉ា (ភូមា)",
+    "code": "MM",
+    "dialCode": "+95",
+    "flagUri": "🇲🇲"
+  },
+  {
+    "name": "Namibia",
+    "nameZh": "纳米比亚",
+    "nameKm": "ណាមីប៊ី",
+    "code": "NA",
+    "dialCode": "+264",
+    "flagUri": "🇳🇦"
+  },
+  {
+    "name": "Nauru",
+    "nameZh": "瑙鲁",
+    "nameKm": "ណូរូ",
+    "code": "NR",
+    "dialCode": "+674",
+    "flagUri": "🇳🇷"
+  },
+  {
+    "name": "Nepal",
+    "nameZh": "尼泊尔",
+    "nameKm": "នេប៉ាល់",
+    "code": "NP",
+    "dialCode": "+977",
+    "flagUri": "🇳🇵"
+  },
+  {
+    "name": "Netherlands",
+    "nameZh": "荷兰",
+    "nameKm": "ហូឡង់",
+    "code": "NL",
+    "dialCode": "+31",
+    "flagUri": "🇳🇱"
+  },
+  {
+    "name": "Netherlands Antilles",
+    "nameZh": null,
+    "nameKm": null,
+    "code": "AN",
+    "dialCode": "+599",
+    "flagUri": ""
+  },
+  {
+    "name": "New Caledonia",
+    "nameZh": "新喀里多尼亚",
+    "nameKm": "នូវែល​កាឡេដូនី",
+    "code": "NC",
+    "dialCode": "+687",
+    "flagUri": "🇳🇨"
+  },
+  {
+    "name": "New Zealand",
+    "nameZh": "新西兰",
+    "nameKm": "នូវែល​សេឡង់",
+    "code": "NZ",
+    "dialCode": "+64",
+    "flagUri": "🇳🇿"
+  },
+  {
+    "name": "Nicaragua",
+    "nameZh": "尼加拉瓜",
+    "nameKm": "នីការ៉ាហ្គា",
+    "code": "NI",
+    "dialCode": "+505",
+    "flagUri": "🇳🇮"
+  },
+  {
+    "name": "Niger",
+    "nameZh": "尼日尔",
+    "nameKm": "នីហ្សេ",
+    "code": "NE",
+    "dialCode": "+227",
+    "flagUri": "🇳🇪"
+  },
+  {
+    "name": "Nigeria",
+    "nameZh": "尼日利亚",
+    "nameKm": "នីហ្សេរីយ៉ា",
+    "code": "NG",
+    "dialCode": "+234",
+    "flagUri": "🇳🇬"
+  },
+  {
+    "name": "Niue",
+    "nameZh": "纽埃",
+    "nameKm": "ណៀ",
+    "code": "NU",
+    "dialCode": "+683",
+    "flagUri": "🇳🇺"
+  },
+  {
+    "name": "Norfolk Island",
+    "nameZh": "诺福克岛",
+    "nameKm": "កោះ​ណ័រហ្វក់",
+    "code": "NF",
+    "dialCode": "+672",
+    "flagUri": "🇳🇫"
+  },
+  {
+    "name": "Northern Mariana Islands",
+    "nameZh": "北马里亚纳群岛",
+    "nameKm": "កោះ​ម៉ារីណា​ខាង​ជើង",
+    "code": "MP",
+    "dialCode": "+1670",
+    "flagUri": "🇲🇵"
+  },
+  {
+    "name": "Norway",
+    "nameZh": "挪威",
+    "nameKm": "ន័រវែស",
+    "code": "NO",
+    "dialCode": "+47",
+    "flagUri": "🇳🇴"
+  },
+  {
+    "name": "Oman",
+    "nameZh": "阿曼",
+    "nameKm": "អូម៉ង់",
+    "code": "OM",
+    "dialCode": "+968",
+    "flagUri": "🇴🇲"
+  },
+  {
+    "name": "Pakistan",
+    "nameZh": "巴基斯坦",
+    "nameKm": "ប៉ាគីស្ថាន",
+    "code": "PK",
+    "dialCode": "+92",
+    "flagUri": "🇵🇰"
+  },
+  {
+    "name": "Palau",
+    "nameZh": "帕劳",
+    "nameKm": "ផៅឡូ",
+    "code": "PW",
+    "dialCode": "+680",
+    "flagUri": "🇵🇼"
+  },
+  {
+    "name": "Palestinian Territory, Occupied",
+    "nameZh": "巴勒斯坦领土",
+    "nameKm": "ដែនដីប៉ាឡេស្ទីន",
+    "code": "PS",
+    "dialCode": "+970",
+    "flagUri": "🇵🇸"
+  },
+  {
+    "name": "Panama",
+    "nameZh": "巴拿马",
+    "nameKm": "ប៉ាណាម៉ា",
+    "code": "PA",
+    "dialCode": "+507",
+    "flagUri": "🇵🇦"
+  },
+  {
+    "name": "Papua New Guinea",
+    "nameZh": "巴布亚新几内亚",
+    "nameKm": "ប៉ាពូអាស៊ី​នូវែលហ្គីណេ",
+    "code": "PG",
+    "dialCode": "+675",
+    "flagUri": "🇵🇬"
+  },
+  {
+    "name": "Paraguay",
+    "nameZh": "巴拉圭",
+    "nameKm": "ប៉ារ៉ាហ្គាយ",
+    "code": "PY",
+    "dialCode": "+595",
+    "flagUri": "🇵🇾"
+  },
+  {
+    "name": "Peru",
+    "nameZh": "秘鲁",
+    "nameKm": "ប៉េរូ",
+    "code": "PE",
+    "dialCode": "+51",
+    "flagUri": "🇵🇪"
+  },
+  {
+    "name": "Philippines",
+    "nameZh": "菲律宾",
+    "nameKm": "ហ្វ៊ីលីពីន",
+    "code": "PH",
+    "dialCode": "+63",
+    "flagUri": "🇵🇭"
+  },
+  {
+    "name": "Pitcairn",
+    "nameZh": null,
+    "nameKm": null,
+    "code": "PN",
+    "dialCode": "+64",
+    "flagUri": "🇵🇳"
+  },
+  {
+    "name": "Poland",
+    "nameZh": "波兰",
+    "nameKm": "ប៉ូឡូញ",
+    "code": "PL",
+    "dialCode": "+48",
+    "flagUri": "🇵🇱"
+  },
+  {
+    "name": "Portugal",
+    "nameZh": "葡萄牙",
+    "nameKm": "ព័រទុយហ្កាល់",
+    "code": "PT",
+    "dialCode": "+351",
+    "flagUri": "🇵🇹"
+  },
+  {
+    "name": "Puerto Rico",
+    "nameZh": "波多黎各",
+    "nameKm": "ព័រតូរីកូ",
+    "code": "PR",
+    "dialCode": "+1939",
+    "flagUri": "🇵🇷"
+  },
+  {
+    "name": "Qatar",
+    "nameZh": "卡塔尔",
+    "nameKm": "កាតា",
+    "code": "QA",
+    "dialCode": "+974",
+    "flagUri": "🇶🇦"
+  },
+  {
+    "name": "Romania",
+    "nameZh": "罗马尼亚",
+    "nameKm": "រូម៉ានី",
+    "code": "RO",
+    "dialCode": "+40",
+    "flagUri": "🇷🇴"
+  },
+  {
+    "name": "Russia",
+    "nameZh": "俄罗斯",
+    "nameKm": "រុស្ស៊ី",
+    "code": "RU",
+    "dialCode": "+7",
+    "flagUri": "🇷🇺"
+  },
+  {
+    "name": "Rwanda",
+    "nameZh": "卢旺达",
+    "nameKm": "រវ៉ាន់ដា",
+    "code": "RW",
+    "dialCode": "+250",
+    "flagUri": "🇷🇼"
+  },
+  {
+    "name": "Reunion",
+    "nameZh": "留尼汪",
+    "nameKm": "រេអុយញ៉ុង",
+    "code": "RE",
+    "dialCode": "+262",
+    "flagUri": "🇷🇪"
+  },
+  {
+    "name": "Saint Barthelemy",
+    "nameZh": "圣巴泰勒米",
+    "nameKm": "សាំង​បាថេឡេមី",
+    "code": "BL",
+    "dialCode": "+590",
+    "flagUri": "🇧🇱"
+  },
+  {
+    "name": "Saint Helena, Ascension and Tristan Da Cunha",
+    "nameZh": "圣赫勒拿",
+    "nameKm": "សង់​ហេឡេណា",
+    "code": "SH",
+    "dialCode": "+290",
+    "flagUri": "🇸🇭"
+  },
+  {
+    "name": "Saint Kitts and Nevis",
+    "nameZh": "圣基茨和尼维斯",
+    "nameKm": "សាំង​គីត និង ណេវីស",
+    "code": "KN",
+    "dialCode": "+1869",
+    "flagUri": "🇰🇳"
+  },
+  {
+    "name": "Saint Lucia",
+    "nameZh": "圣卢西亚",
+    "nameKm": "សាំងលូស៊ី",
+    "code": "LC",
+    "dialCode": "+1758",
+    "flagUri": "🇱🇨"
+  },
+  {
+    "name": "Saint Martin",
+    "nameZh": "法属圣马丁",
+    "nameKm": "សាំង​ម៉ាទីន",
+    "code": "MF",
+    "dialCode": "+590",
+    "flagUri": "🇲🇫"
+  },
+  {
+    "name": "Saint Pierre and Miquelon",
+    "nameZh": "圣皮埃尔和密克隆群岛",
+    "nameKm": "សង់ព្យែរ និង​មីគីឡុង",
+    "code": "PM",
+    "dialCode": "+508",
+    "flagUri": "🇵🇲"
+  },
+  {
+    "name": "Saint Vincent and the Grenadines",
+    "nameZh": "圣文森特和格林纳丁斯",
+    "nameKm": "សាំង​វ៉ាំងសង់ និង ហ្គ្រេណាឌីន",
+    "code": "VC",
+    "dialCode": "+1784",
+    "flagUri": "🇻🇨"
+  },
+  {
+    "name": "Samoa",
+    "nameZh": "萨摩亚",
+    "nameKm": "សាម័រ",
+    "code": "WS",
+    "dialCode": "+685",
+    "flagUri": "🇼🇸"
+  },
+  {
+    "name": "San Marino",
+    "nameZh": "圣马力诺",
+    "nameKm": "សាន​ម៉ារីណូ",
+    "code": "SM",
+    "dialCode": "+378",
+    "flagUri": "🇸🇲"
+  },
+  {
+    "name": "Sao Tome and Principe",
+    "nameZh": "圣多美和普林西比",
+    "nameKm": "សៅតូម៉េ និង ប្រាំងស៊ីប",
+    "code": "ST",
+    "dialCode": "+239",
+    "flagUri": "🇸🇹"
+  },
+  {
+    "name": "Saudi Arabia",
+    "nameZh": "沙特阿拉伯",
+    "nameKm": "អារ៉ាប៊ីសាអូឌីត",
+    "code": "SA",
+    "dialCode": "+966",
+    "flagUri": "🇸🇦"
+  },
+  {
+    "name": "Senegal",
+    "nameZh": "塞内加尔",
+    "nameKm": "សេណេហ្គាល់",
+    "code": "SN",
+    "dialCode": "+221",
+    "flagUri": "🇸🇳"
+  },
+  {
+    "name": "Serbia",
+    "nameZh": "塞尔维亚",
+    "nameKm": "សែប៊ី",
+    "code": "RS",
+    "dialCode": "+381",
+    "flagUri": "🇷🇸"
+  },
+  {
+    "name": "Seychelles",
+    "nameZh": "塞舌尔",
+    "nameKm": "សីស្ហែល",
+    "code": "SC",
+    "dialCode": "+248",
+    "flagUri": "🇸🇨"
+  },
+  {
+    "name": "Sierra Leone",
+    "nameZh": "塞拉利昂",
+    "nameKm": "សៀរ៉ាឡេអូន",
+    "code": "SL",
+    "dialCode": "+232",
+    "flagUri": "🇸🇱"
+  },
+  {
+    "name": "Singapore",
+    "nameZh": "新加坡",
+    "nameKm": "សិង្ហបុរី",
+    "code": "SG",
+    "dialCode": "+65",
+    "flagUri": "🇸🇬"
+  },
+  {
+    "name": "Slovakia",
+    "nameZh": "斯洛伐克",
+    "nameKm": "ស្លូវ៉ាគី",
+    "code": "SK",
+    "dialCode": "+421",
+    "flagUri": "🇸🇰"
+  },
+  {
+    "name": "Slovenia",
+    "nameZh": "斯洛文尼亚",
+    "nameKm": "ស្លូវេនី",
+    "code": "SI",
+    "dialCode": "+386",
+    "flagUri": "🇸🇮"
+  },
+  {
+    "name": "Solomon Islands",
+    "nameZh": "所罗门群岛",
+    "nameKm": "កោះ​សូឡូម៉ុង",
+    "code": "SB",
+    "dialCode": "+677",
+    "flagUri": "🇸🇧"
+  },
+  {
+    "name": "Somalia",
+    "nameZh": "索马里",
+    "nameKm": "សូម៉ាលី",
+    "code": "SO",
+    "dialCode": "+252",
+    "flagUri": "🇸🇴"
+  },
+  {
+    "name": "South Africa",
+    "nameZh": "南非",
+    "nameKm": "អាហ្វ្រិកខាងត្បូង",
+    "code": "ZA",
+    "dialCode": "+27",
+    "flagUri": "🇿🇦"
+  },
+  {
+    "name": "South Sudan",
+    "nameZh": "南苏丹",
+    "nameKm": "ស៊ូដង់​ខាង​ត្បូង",
+    "code": "SS",
+    "dialCode": "+211",
+    "flagUri": "🇸🇸"
+  },
+  {
+    "name": "South Georgia and the South Sandwich Islands",
+    "nameZh": null,
+    "nameKm": null,
+    "code": "GS",
+    "dialCode": "+500",
+    "flagUri": "🇬🇸"
+  },
+  {
+    "name": "Spain",
+    "nameZh": "西班牙",
+    "nameKm": "អេស្ប៉ាញ",
+    "code": "ES",
+    "dialCode": "+34",
+    "flagUri": "🇪🇸"
+  },
+  {
+    "name": "Sri Lanka",
+    "nameZh": "斯里兰卡",
+    "nameKm": "ស្រីលង្កា",
+    "code": "LK",
+    "dialCode": "+94",
+    "flagUri": "🇱🇰"
+  },
+  {
+    "name": "Sudan",
+    "nameZh": "苏丹",
+    "nameKm": "ស៊ូដង់",
+    "code": "SD",
+    "dialCode": "+249",
+    "flagUri": "🇸🇩"
+  },
+  {
+    "name": "Suriname",
+    "nameZh": "苏里南",
+    "nameKm": "សូរីណាម",
+    "code": "SR",
+    "dialCode": "+597",
+    "flagUri": "🇸🇷"
+  },
+  {
+    "name": "Svalbard and Jan Mayen",
+    "nameZh": "斯瓦尔巴和扬马延",
+    "nameKm": "ស្វាលបាដ និង ហ្សង់ម៉ាយេន",
+    "code": "SJ",
+    "dialCode": "+47",
+    "flagUri": "🇸🇯"
+  },
+  {
+    "name": "Swaziland",
+    "nameZh": "斯威士兰",
+    "nameKm": "ស្វាស៊ីឡង់",
+    "code": "SZ",
+    "dialCode": "+268",
+    "flagUri": "🇸🇿"
+  },
+  {
+    "name": "Sweden",
+    "nameZh": "瑞典",
+    "nameKm": "ស៊ុយអែត",
+    "code": "SE",
+    "dialCode": "+46",
+    "flagUri": "🇸🇪"
+  },
+  {
+    "name": "Switzerland",
+    "nameZh": "瑞士",
+    "nameKm": "ស្វ៊ីស",
+    "code": "CH",
+    "dialCode": "+41",
+    "flagUri": "🇨🇭"
+  },
+  {
+    "name": "Syrian Arab Republic",
+    "nameZh": "叙利亚",
+    "nameKm": "ស៊ីរី",
+    "code": "SY",
+    "dialCode": "+963",
+    "flagUri": "🇸🇾"
+  },
+  {
+    "name": "Taiwan",
+    "nameZh": "台湾",
+    "nameKm": "តៃវ៉ាន់",
+    "code": "TW",
+    "dialCode": "+886",
+    "flagUri": "🇹🇼"
+  },
+  {
+    "name": "Tajikistan",
+    "nameZh": "塔吉克斯坦",
+    "nameKm": "តាហ្ស៊ីគីស្ថាន",
+    "code": "TJ",
+    "dialCode": "+992",
+    "flagUri": "🇹🇯"
+  },
+  {
+    "name": "Tanzania, United Republic of Tanzania",
+    "nameZh": "坦桑尼亚",
+    "nameKm": "តង់សានី",
+    "code": "TZ",
+    "dialCode": "+255",
+    "flagUri": "🇹🇿"
+  },
+  {
+    "name": "Thailand",
+    "nameZh": "泰国",
+    "nameKm": "ថៃ",
+    "code": "TH",
+    "dialCode": "+66",
+    "flagUri": "🇹🇭"
+  },
+  {
+    "name": "Timor-Leste",
+    "nameZh": "东帝汶",
+    "nameKm": "ទីម័រលេស្តេ",
+    "code": "TL",
+    "dialCode": "+670",
+    "flagUri": "🇹🇱"
+  },
+  {
+    "name": "Togo",
+    "nameZh": "多哥",
+    "nameKm": "តូហ្គោ",
+    "code": "TG",
+    "dialCode": "+228",
+    "flagUri": "🇹🇬"
+  },
+  {
+    "name": "Tokelau",
+    "nameZh": "托克劳",
+    "nameKm": "តូខេឡៅ",
+    "code": "TK",
+    "dialCode": "+690",
+    "flagUri": "🇹🇰"
+  },
+  {
+    "name": "Tonga",
+    "nameZh": "汤加",
+    "nameKm": "តុងហ្គា",
+    "code": "TO",
+    "dialCode": "+676",
+    "flagUri": "🇹🇴"
+  },
+  {
+    "name": "Trinidad and Tobago",
+    "nameZh": "特立尼达和多巴哥",
+    "nameKm": "ទ្រីនីដាត និង​តូបាហ្គោ",
+    "code": "TT",
+    "dialCode": "+1868",
+    "flagUri": "🇹🇹"
+  },
+  {
+    "name": "Tunisia",
+    "nameZh": "突尼斯",
+    "nameKm": "ទុយនីស៊ី",
+    "code": "TN",
+    "dialCode": "+216",
+    "flagUri": "🇹🇳"
+  },
+  {
+    "name": "Turkey",
+    "nameZh": "土耳其",
+    "nameKm": "តួកគី",
+    "code": "TR",
+    "dialCode": "+90",
+    "flagUri": "🇹🇷"
+  },
+  {
+    "name": "Turkmenistan",
+    "nameZh": "土库曼斯坦",
+    "nameKm": "តួកម៉េនីស្ថាន",
+    "code": "TM",
+    "dialCode": "+993",
+    "flagUri": "🇹🇲"
+  },
+  {
+    "name": "Turks and Caicos Islands",
+    "nameZh": "特克斯和凯科斯群岛",
+    "nameKm": "កោះ​ទួគ និង កៃកូស",
+    "code": "TC",
+    "dialCode": "+1649",
+    "flagUri": "🇹🇨"
+  },
+  {
+    "name": "Tuvalu",
+    "nameZh": "图瓦卢",
+    "nameKm": "ទូវ៉ាលូ",
+    "code": "TV",
+    "dialCode": "+688",
+    "flagUri": "🇹🇻"
+  },
+  {
+    "name": "Uganda",
+    "nameZh": "乌干达",
+    "nameKm": "អ៊ូហ្គង់ដា",
+    "code": "UG",
+    "dialCode": "+256",
+    "flagUri": "🇺🇬"
+  },
+  {
+    "name": "Ukraine",
+    "nameZh": "乌克兰",
+    "nameKm": "អ៊ុយក្រែន",
+    "code": "UA",
+    "dialCode": "+380",
+    "flagUri": "🇺🇦"
+  },
+  {
+    "name": "United Arab Emirates",
+    "nameZh": "阿拉伯联合酋长国",
+    "nameKm": "អេមីរ៉ាត​អារ៉ាប់​រួម",
+    "code": "AE",
+    "dialCode": "+971",
+    "flagUri": "🇦🇪"
+  },
+  {
+    "name": "United Kingdom",
+    "nameZh": "英国",
+    "nameKm": "ចក្រភព​អង់គ្លេស",
+    "code": "GB",
+    "dialCode": "+44",
+    "flagUri": "🇬🇧"
+  },
+  {
+    "name": "United States",
+    "nameZh": "美国",
+    "nameKm": "សហរដ្ឋអាមេរិក",
+    "code": "US",
+    "dialCode": "+1",
+    "flagUri": "🇺🇸"
+  },
+  {
+    "name": "Uruguay",
+    "nameZh": "乌拉圭",
+    "nameKm": "អ៊ុយរូហ្គាយ",
+    "code": "UY",
+    "dialCode": "+598",
+    "flagUri": "🇺🇾"
+  },
+  {
+    "name": "Uzbekistan",
+    "nameZh": "乌兹别克斯坦",
+    "nameKm": "អ៊ូសបេគីស្ថាន",
+    "code": "UZ",
+    "dialCode": "+998",
+    "flagUri": "🇺🇿"
+  },
+  {
+    "name": "Vanuatu",
+    "nameZh": "瓦努阿图",
+    "nameKm": "វ៉ានូទូ",
+    "code": "VU",
+    "dialCode": "+678",
+    "flagUri": "🇻🇺"
+  },
+  {
+    "name": "Venezuela, Bolivarian Republic of Venezuela",
+    "nameZh": "委内瑞拉",
+    "nameKm": "វ៉េណេស៊ុយអេឡា",
+    "code": "VE",
+    "dialCode": "+58",
+    "flagUri": "🇻🇪"
+  },
+  {
+    "name": "Vietnam",
+    "nameZh": "越南",
+    "nameKm": "វៀតណាម",
+    "code": "VN",
+    "dialCode": "+84",
+    "flagUri": "🇻🇳"
+  },
+  {
+    "name": "Virgin Islands, British",
+    "nameZh": "英属维尔京群岛",
+    "nameKm": "កោះ​វឺជិន​ចក្រភព​អង់គ្លេស",
+    "code": "VG",
+    "dialCode": "+1284",
+    "flagUri": "🇻🇬"
+  },
+  {
+    "name": "Virgin Islands, U.S.",
+    "nameZh": "美属维尔京群岛",
+    "nameKm": "កោះ​វឺជីន​អាមេរិក",
+    "code": "VI",
+    "dialCode": "+1340",
+    "flagUri": "🇻🇮"
+  },
+  {
+    "name": "Wallis and Futuna",
+    "nameZh": "瓦利斯和富图纳",
+    "nameKm": "វ៉ាលីស និង​ហ្វូទូណា",
+    "code": "WF",
+    "dialCode": "+681",
+    "flagUri": "🇼🇫"
+  },
+  {
+    "name": "Yemen",
+    "nameZh": "也门",
+    "nameKm": "យេម៉ែន",
+    "code": "YE",
+    "dialCode": "+967",
+    "flagUri": "🇾🇪"
+  },
+  {
+    "name": "Zambia",
+    "nameZh": "赞比亚",
+    "nameKm": "សំប៊ី",
+    "code": "ZM",
+    "dialCode": "+260",
+    "flagUri": "🇿🇲"
+  },
+  {
+    "name": "Zimbabwe",
+    "nameZh": "津巴布韦",
+    "nameKm": "ស៊ីមបាវ៉េ",
+    "code": "ZW",
+    "dialCode": "+263",
+    "flagUri": "🇿🇼"
+  }
+]

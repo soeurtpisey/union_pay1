@@ -346,7 +346,7 @@ class ApplyFormLogic extends GetxController {
   }
 
   void getPhone() async {
-    var user = await App.getLocalUserProfile();
+    var user = App.userSession?.userInfo;
     if(user?.phone?.startsWith('855')==true){
       phoneOneController.text = user!.phone!.substring(3,user.phone!.length);
     }

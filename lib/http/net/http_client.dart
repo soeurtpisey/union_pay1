@@ -4,7 +4,6 @@ import 'package:oktoast/oktoast.dart';
 import '../../utils/log_util.dart';
 import '../api.dart';
 import 'dio_new.dart';
-import 'dart:html';
 
 /// Response 解析
 abstract class HttpTransformer {
@@ -41,7 +40,7 @@ class HttpClient {
         return appResponse;
       } else {
         throw HttpException(
-            appResponse.error!.message, appResponse.error!.code);
+            appResponse.error!.message, appResponse.error!.status);
       }
     } on Exception catch (e) {
       Log.e(e);
@@ -66,7 +65,7 @@ class HttpClient {
       }
       var response = await _dio.post(
         uri,
-        data: data,
+        data: json.encode(data),
         queryParameters: queryParameters,
         options: options,
         cancelToken: cancelToken,
@@ -80,7 +79,7 @@ class HttpClient {
       } else {
         errorHandle(appResponse);
         throw HttpException(
-            appResponse.error!.message, appResponse.error!.code);
+            appResponse.error!.message, appResponse.error!.status);
       }
     } on HttpException catch (e) {
       throw handleException(e).error!;
@@ -118,7 +117,7 @@ class HttpClient {
         return appResponse.data;
       } else {
         throw HttpException(
-            appResponse.error!.message, appResponse.error!.code);
+            appResponse.error!.message, appResponse.error!.status);
       }
     } on Exception catch (e) {
       Log.e(e);
@@ -150,7 +149,7 @@ class HttpClient {
         return appResponse.data;
       } else {
         throw HttpException(
-            appResponse.error!.message, appResponse.error!.code);
+            appResponse.error!.message, appResponse.error!.status);
       }
     } on Exception catch (e) {
       Log.e(e);
@@ -182,7 +181,7 @@ class HttpClient {
         return appResponse;
       } else {
         throw HttpException(
-            appResponse.error!.message, appResponse.error!.code);
+            appResponse.error!.message, appResponse.error!.status);
       }
     } on DioError catch (e) {
       throw handleException(e).error!;
@@ -215,7 +214,7 @@ class HttpClient {
         return appResponse;
       } else {
         throw HttpException(
-            appResponse.error!.message, appResponse.error!.code);
+            appResponse.error!.message, appResponse.error!.status);
       }
     } on Exception catch (e) {
       Log.e(e);
@@ -244,7 +243,7 @@ class HttpClient {
         return appResponse;
       } else {
         throw HttpException(
-            appResponse.error!.message, appResponse.error!.code);
+            appResponse.error!.message, appResponse.error!.status);
       }
       // if (response.statusCode == HttpStatus.ok ||
       //     response.statusCode == HttpStatus.created) {
@@ -294,61 +293,22 @@ class HttpClient {
       if (response.statusCode == 200) {
         return response.data;
       }
-      throw HttpException('下载失败', '-1');
+      throw HttpException('下载失败', 'error');
       return response;
     } catch (e) {
       throw e;
     }
   }
 
-//   Future<BaseResp<T>> download<T>(String path, String savePath,
-//       {Map<String, dynamic>? params, Function? callBack}) async {
-//     int? _status;
-//     int? _code;
-//     String? _msg;
-//     T? _data;
-//     Response? response;
-//     try {
-//       response = await Dio().download(path, savePath,
-//           onReceiveProgress: (int loaded, int total) {
-//         callBack?.call(loaded, total);
-//       });
-//
-//       if (response.statusCode == HttpStatus.ok ||
-//           response.statusCode == HttpStatus.created) {
-// //        if (response.data is Map) {
-// //          _status = response.data[_statusKey];
-// //          _msg = response.data["msg"];
-// //          _data = response.data[_dataKey];
-// //        } else {
-//         _status = (response.data as ResponseBody).statusCode;
-//         // }
-//         return BaseResp(_status, _code, _msg, _data);
-//       }
-//     } on DioError catch (e) {
-//       print(e);
-//       return Future.error(createErrorEntity(e));
-//     }
-//     return BaseResp(HttpStatus.forbidden, HttpStatus.forbidden,
-//         response.statusMessage ?? '', null);
-//   }
-
   errorHandle(HttpResponse appResponse) {
-    if (appResponse.error!.code == 401) {
-      showToast(appResponse?.error?.message??'');
-      // Application.clearUserModel();
-      // NavigatorUtils.goLoginOriginPage();
-      return;
-    }
-    if (appResponse.error!.code == 203) {
-      /// 未设置支付密码
-      // showToast(appResponse.error!.message);
-      // Application.setPayPasswordAction();
-      // NavigatorUtils.goLoginOriginPage();
-      return;
-    }
+    // if (appResponse.error!.status == 401) {
+    //   showToast(appResponse?.error?.message??'');
+    //   // Application.clearUserModel();
+    //   // NavigatorUtils.goLoginOriginPage();
+    //   return;
+    // }
 
-    throw HttpException(appResponse.error!.message, appResponse.error!.code);
+    throw HttpException(appResponse.error!.message, appResponse.error!.status);
   }
 
   void setToken(String token) {

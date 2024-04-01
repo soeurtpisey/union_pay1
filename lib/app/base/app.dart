@@ -12,6 +12,7 @@ import '../../helper/hive/hive_helper.dart';
 import '../../helper/push/firebase_message_handler.dart';
 import '../../helper/share_preference_keys.dart';
 import '../../helper/user_session.dart';
+import '../../models/user/user_info.dart';
 import '../../models/user/user_profile.dart';
 import '../../repositories/user_repository.dart';
 import '../../route/app_route.dart';
@@ -25,7 +26,7 @@ class App {
   static Function({String language})? onAppLanguageChanged;
   static UserRepository userRepository = UserRepository();
   static UserSession? userSession;
-  static UserProfile? userProfile;
+  static UserInfo? userInfo;
   static PackageInfo? packageInfo;
   static String? fcmToken;
   static String? hmsToken;
@@ -66,10 +67,10 @@ class App {
   }
 
   static bool isTokenBefore() {
-    if (App.userSession?.expiredTime != null && isLogin()) {
+    if (App.userSession?.expireTime != null && isLogin()) {
       var dateTimeNow = DateTime.now();
       var serverTime =
-          DateTime.fromMillisecondsSinceEpoch(App.userSession!.expiredTime!);
+          DateTime.fromMillisecondsSinceEpoch(App.userSession!.expireTime!);
       return serverTime.isBefore(dateTimeNow);
     }
     return false;
@@ -84,7 +85,7 @@ class App {
         if (isTokenBefore()) {
           var userSession = await App.userRepository?.refreshSession();
           var now = DateTime.now().millisecondsSinceEpoch;
-          userSession?.expiredTime = now + (userSession.expiredIn ?? 0);
+          userSession?.expireTime = now + (userSession.expireTime ?? 0);
           userRepository?.setToken(userSession?.token ?? '');
           var userInfo = App.userSession?.userInfo;
           userSession?.userInfo = userInfo;
@@ -158,62 +159,6 @@ class App {
 
   static Future<void> clearUserSessionAndProfile() async {
     userSession = UserSession();
-    userProfile = null;
-  }
-
-  // static Future<UserProfile?> getUserProfile({bool forceReload = false}) async {
-  //   if (!forceReload && userProfile != null) return userProfile;
-  //   dynamic profileData;
-  //   try {
-  //     profileData = await userRepository.getUser();
-  //   } catch (e) {
-  //     try {
-  //       profileData = await userRepository.getProfile();
-  //     } catch (e) {
-  //       //
-  //       return userProfile;
-  //     }
-  //   }
-  //   userProfile = UserProfile.fromJson(profileData);
-  //
-  //   ServiceLocator.get<AuthenticationBloc>().add(ProfileUpdated(
-  //     userProfile: userProfile,
-  //   ));
-  //   ServiceLocator.get<UserBloc>().add(RefreshUser());
-  //   var jsonStr = json.encode(profileData);
-  //   await sharedPreferences?.setString(
-  //       SharedPreferencesKeys.user_data, jsonStr);
-  //   Application.eventBus?.fire(RefreshProfile());
-  //   return userProfile;
-  // }
-  //
-  // static Future<bool> isLogin() async {
-  //   if (userProfile == null) {
-  //     if (sharedPreferences == null) {
-  //       await initializeSharedPrefs();
-  //     }
-  //     var data = sharedPreferences?.getString(SharedPreferencesKeys.user_data);
-  //     return data != null;
-  //   } else {
-  //     return true;
-  //   }
-  // }
-
-  static Future<UserProfile?> getLocalUserProfile(
-      {bool forceReload = false}) async {
-    if (userProfile != null && !forceReload) return userProfile;
-    var data = sharedPreferences?.getString(SharedPreferencesKeys.user_data);
-    if (data != null) {
-      var map = json.decode(data);
-      userProfile = UserProfile.fromJson(map);
-      /// warning
-      // ServiceLocator.get<AuthenticationBloc>().add(ProfileUpdated(
-      //   userProfile: userProfile,
-      // ));
-      return userProfile;
-    } else {
-      /// warning
-      // return getUserProfile(forceReload: forceReload);
-    }
+    userInfo = null;
   }
 }

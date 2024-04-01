@@ -13,7 +13,7 @@ HttpResponse handleResponse(Response? response,
   // token失效
   if (_isTokenTimeout(response.statusCode)) {
     return HttpResponse.failureFromError(UnauthorisedException(
-        message: "没有权限", code: response.statusCode.toString()));
+        message: "没有权限", status: response.statusCode.toString()));
   }
   // 接口调用成功
   if (_isRequestSuccess(response.statusCode)) {
@@ -56,36 +56,36 @@ HttpException _parseException(Exception error) {
           switch (errCode) {
             case 400:
               return BadRequestException(
-                  message: "请求语法错误", code: errCode.toString());
+                  message: "请求语法错误", status: errCode.toString());
             case 401:
               return UnauthorisedException(
-                  message: "没有权限", code: errCode.toString());
+                  message: "没有权限", status: errCode.toString());
             case 403:
               return BadRequestException(
-                  message: "服务器拒绝执行", code: errCode.toString());
+                  message: "服务器拒绝执行", status: errCode.toString());
             case 404:
               return BadRequestException(
-                  message: "无法连接服务器", code: errCode.toString());
+                  message: "无法连接服务器", status: errCode.toString());
             case 405:
               return BadRequestException(
-                  message: "请求方法被禁止", code: errCode.toString());
+                  message: "请求方法被禁止", status: errCode.toString());
             case 500:
               return BadServiceException(
-                  message: "服务器内部错误", code: errCode.toString());
+                  message: "服务器内部错误", status: errCode.toString());
             case 502:
               return BadServiceException(
-                  message: "无效的请求", code: errCode.toString());
+                  message: "无效的请求", status: errCode.toString());
             case 503:
               return BadServiceException(
-                  message: "服务器挂了", code: errCode.toString());
+                  message: "服务器挂了", status: errCode.toString());
             case 505:
               return UnauthorisedException(
-                  message: "不支持HTTP协议请求", code: errCode.toString());
+                  message: "不支持HTTP协议请求", status: errCode.toString());
             default:
               return UnknownException(error.error.msg, errCode.toString());
           }
         } on Exception catch (_) {
-          return UnknownException(error.error.msg, errCode.toString());
+          return UnknownException(error.error.msg, error.toString());
         }
 
       case DioErrorType.other:
@@ -98,6 +98,6 @@ HttpException _parseException(Exception error) {
         return UnknownException(error.message, errCode.toString());
     }
   } else {
-    return UnknownException((error as HttpException).message, (error).code);
+    return UnknownException((error as HttpException).message, (error).status);
   }
 }

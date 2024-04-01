@@ -5,11 +5,17 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:pinput/pinput.dart';
+import 'package:union_pay/http/net/dio_new.dart';
 import 'package:union_pay/models/auth/email_verify_model.dart';
 import 'package:union_pay/models/auth/phone_verify_model.dart';
+import 'package:union_pay/pages/home/home_page.dart';
 import 'package:union_pay/repositories/user_repository.dart';
+import 'package:union_pay/utils/encrypt_util.dart';
 import '../../generated/l10n.dart';
 import '../../helper/colors.dart';
+import '../../models/auth/forget_password_model.dart';
+import '../../route/app_route.dart';
+import '../../route/base_route.dart';
 import '../../utils/count_down.dart';
 import '../../widgets/common.dart';
 
@@ -20,7 +26,8 @@ class VerifyCodePage extends StatefulWidget {
 
 class _VerifyCodePageState extends State<VerifyCodePage> {
   final FocusNode pinPutFocusNode = FocusNode();
-  TextEditingController pinPutController = TextEditingController();
+  final TextEditingController pinPutController = TextEditingController();
+  final userRepository = UserRepository();
   int timeout = 60;
   CountDown? cd;
   StreamSubscription? sub;
@@ -29,6 +36,9 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
   bool isSuccessVerify = false;
   String sendTo = '';
   String pass = '';
+  bool isLoading = false;
+  bool isResetPassword = false;
+  bool isPhoneNumber = false;
 
   @override
   void initState() {
@@ -38,9 +48,13 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
       if (arguments is PhoneVerifyModel) {
         sendTo = arguments.phone;
         pass = arguments.password;
+        isResetPassword = arguments.isForgetPass;
+        isPhoneNumber = true;
       } else if (arguments is EmailVerifyModel) {
         sendTo = arguments.email;
-        pass = arguments.password;
+        pass = arguments.password ?? '';
+        isResetPassword = arguments.isForgetPass;
+        isPhoneNumber = false;
       }
     }
     startTimer();
@@ -68,7 +82,7 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                   fontSize: 24,
                   fontWeight: FontWeight.w500,
                   color: Colors.black),
-              cText(S.current.enter_code_we_have_sent(sendTo),
+              cText( isPhoneNumber ? S.current.enter_code_we_have_sent_to_phone(sendTo) : S.current.enter_code_we_have_sent(sendTo),
                   fontSize: 16, color: Colors.black.withOpacity(0.45)),
               const SizedBox(height: 30),
               Container(
@@ -87,7 +101,10 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                   autofocus: true,
                   length: 4,
                   validator: (v) {
-                    onSubmitPinCode();
+                    isResetPassword ?
+                    verifyOTPForResetPassword()
+                    :
+                    requestVerifyLogin();
                   },
                   focusNode: pinPutFocusNode,
                   controller: pinPutController,
@@ -98,6 +115,26 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                   showCursor: true,
                 ),
               ),
+              Visibility(
+                visible: hasError && errorMessage.isNotEmpty,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: cText(errorMessage, fontSize: 12, color: AppColors.colorF5222D),
+                )
+              ),
+              isLoading ?
+              Container(
+                padding: const EdgeInsets.only(top: 10),
+                child: Center(
+                  child: Container(
+                      height: 28.0,
+                      width: 28.0,
+                      child: const CircularProgressIndicator(
+                          strokeWidth: 2.0,
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              AppColors.colorF5222D))),
+                ),
+              ) :
               /// resend
               Container(
                 padding: EdgeInsets.only(top: hasError ? 10.0 : 16, bottom: 44),
@@ -113,6 +150,9 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                           fontWeight: FontWeight.w500,
                           color: AppColors.primaryColor),
                       onTap: () {
+                        setState(() {
+                          hasError = false;
+                        });
                         resendSmsCode();
                       },
                     )
@@ -153,21 +193,121 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
     });
   }
 
+  void verifyEmail() async {
+    try {
+      var response = await userRepository.emailVerify(email: sendTo);
+      if (response != null) {
+        /// success
+        setState(() {
+          timeout = 0;
+          hasError = false;
+        });
+      }
+    } catch (error) {
+      print(error);
+    }
+  }
+
   void resendSmsCode() {
+    verifyEmail();
     startTimer();
   }
 
-  void onSubmitPinCode() {
+  /// Request Forget Password OTP
+  void verifyOTPForResetPassword() async {
+    setState(() {
+      isLoading = true;
+    });
+    try {
+      var response = isPhoneNumber ?
+      await userRepository.verifyOTPForgetPassByPhone(phone: sendTo, optCode: pinPutController.text)
+          :
+      await userRepository.verifyOTPForgetPassByEmail(email: sendTo, optCode: pinPutController.text);
 
+      if (response != null) {
+        /// success -> go to forget password page
+        setState(() {
+          timeout = 0;
+        });
+        NavigatorUtils.jump(AppModuleRoute.resetPasswordPage,
+            arguments: ForgetPasswordModel(
+              phone: sendTo,
+              verifyUuid: response,
+              isPhone: isPhoneNumber
+            )
+        );
+      } else {
+        setState(() {
+          isLoading = false;
+          hasError = true;
+        });
+      }
+    } catch (error) {
+      if (error is UnknownException) {
+        if (error.status == 'OPT_CODE_ERROR') {
+          errorMessage = S().incorrect_verify_code;
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      setState(() {
+        isLoading = false;
+        hasError = true;
+      });
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  /// Register
+  void requestVerifyLogin() async {
+    setState(() {
+      isLoading = true;
+    });
+    try {
+      var response = await userRepository.registerWithEmail(email: sendTo, otpCode: pinPutController.text, password: EncryptUtil.encodeMd5(pass).toString());
+      if (response != null) {
+        /// success -> go to home page
+        setState(() {
+          timeout = 0;
+        });
+        Get.to(HomePage());
+      } else {
+        setState(() {
+          isLoading = false;
+          hasError = true;
+        });
+      }
+    } catch (error) {
+      if (error is UnknownException) {
+        if (error.status == 'OPT_CODE_ERROR') {
+          errorMessage = S().incorrect_verify_code;
+        } else if (error.status == 'EXIT_REGISTER') {
+          errorMessage = S().email_already_exits;
+        } else {
+          errorMessage = error.message;
+        }
+      }
+      setState(() {
+        isLoading = false;
+        hasError = true;
+      });
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   PinTheme setPinStyle() {
     var underlineColor = Colors.black;
     if (hasError) {
       if (pinPutController.text.length == 4) {
-        underlineColor = Colors.black;
-      } else {
         underlineColor = Colors.red;
+      } else {
+        underlineColor = Colors.black;
       }
     } else if (pinPutController.text.length == 4 && isSuccessVerify == true) {
       underlineColor = AppColors.color00C958;

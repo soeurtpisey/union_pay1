@@ -29,8 +29,9 @@ class PrepaidAccountLogic extends GetxController {
   }
 
   void shareAccount(UnionPayCardResModel data) {
-    var userName =
-        '${App.userProfile?.profile?.fname} ${App.userProfile?.profile?.lname} ';
+    /// warning
+    var userName = '';
+        //'${App.userProfile?.profile?.fname} ${App.userProfile?.profile?.lname} ';
     var shareStr = S.current.prepaid_card_share_account(
         'U-Pay', userName, data.cardId ?? '', 'http://upay');
     ClipboardTool.setData(shareStr);

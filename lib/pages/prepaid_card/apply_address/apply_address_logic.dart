@@ -49,8 +49,8 @@ class ApplyAddressLogic extends GetxController {
   }
 
   void getPhone() async{
-    var user=await App.getLocalUserProfile();
-    phoneOneController.text = user?.phone?.replaceAll('855', '')??'';
+    var phone = App.userSession?.userInfo?.phone;
+    phoneOneController.text = phone?.replaceAll('855', '') ?? '';
   }
 
   @override

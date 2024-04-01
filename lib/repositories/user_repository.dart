@@ -1,56 +1,57 @@
-import 'dart:io';
 import '../app/base/app.dart';
-import '../generated/json/base/json_convert_content.dart';
 import '../helper/hive/hive_helper.dart';
 import '../helper/user_session.dart';
 import '../http/api.dart';
 import '../models/user/user_info.dart';
 import '../utils/log_util.dart';
 import 'base_repository.dart';
-import 'package:device_info/device_info.dart';
 
 class UserRepository extends BaseRepository {
-  Future<dynamic> login(
-      {required String username, required String password}) async {
+  Future<dynamic> loginWithEmail(
+      {required String email, required String password}) async {
     Log.e(App.fcmToken);
-    // showToast(App.fcmToken);
-    // final ts = (DateTime.now().millisecondsSinceEpoch ~/ 1000).toInt();
     var data = {
-      'appVersion': App.packageInfo?.version,
-      'username': username,
+      'email': email,
       'password': password,
-      'token': App.fcmToken ?? '',
-      'deviceId': App.platformDeviceId,
     };
 
-    final deviceInfo = DeviceInfoPlugin();
-    if (Platform.isAndroid) {
-      final androidInfo = await deviceInfo.androidInfo;
-      data['osVersion'] = androidInfo.version.release;
-      data['os'] = 'Android';
-      data['model'] = androidInfo.product;
-      data['brand'] = androidInfo.brand;
-      data['pushType'] = '0';
-    } else {
-      final iosInfo = await deviceInfo.iosInfo;
-      data['osVersion'] = iosInfo.systemVersion;
-      data['os'] = 'iOS';
-      data['model'] = iosInfo.utsname.machine;
-      data['brand'] = 'APPLE';
-      data['pushType'] = '0';
-    }
-
-    final apiResponse = await appPost(Api.login, data: data);
+    final apiResponse = await appPost(Api.emailLogin, data: data);
     final userSession = UserSession.fromJson(apiResponse.data);
     await initConfig(userSession);
-    HiveHelper.setLastLoginUserName(username);
+    return apiResponse.data;
+  }
+
+  Future<dynamic> loginWithPhone(
+      {required String phone, required String password}) async {
+    Log.e(App.fcmToken);
+    var data = {
+      'phone': phone,
+      'password': password,
+    };
+
+    final apiResponse = await appPost(Api.phoneLogin, data: data);
+    final userSession = UserSession.fromJson(apiResponse.data);
+    await initConfig(userSession);
+    return apiResponse.data;
+  }
+
+  Future<dynamic> registerWithPhone(
+      {required String phone, required String password}) async {
+    Log.e(App.fcmToken);
+    var data = {
+      'phone': phone,
+      'password': password,
+    };
+
+    final apiResponse = await appPost(Api.phoneRegister, data: data);
+    final userSession = UserSession.fromJson(apiResponse.data);
+    await initConfig(userSession);
     return apiResponse.data;
   }
 
   Future<void> initConfig(UserSession userSession) async {
     var now = DateTime.now().millisecondsSinceEpoch;
-    userSession.expiredTime = now + (userSession.expiredIn ?? 0);
-    // userSession.expiredTime = now + 20000;
+    userSession.expireTime = now + (userSession.expireSecond ?? 0);
     setToken(userSession.token ?? '');
     final userInfo = await getUserInfo();
     if (userInfo != null) {
@@ -58,13 +59,11 @@ class UserRepository extends BaseRepository {
     }
     App.userSession = userSession;
     HiveHelper.setUserSession(userSession);
-
-
   }
 
   Future<UserSession> refreshSession() async {
     var data = {
-      'refreshToken': App.userSession?.refreshToken,
+      'refreshToken': '',//App.userSession?.refreshToken,
     };
     final apiResponse = await appPost(Api.refreshToken, data: data);
     return UserSession.fromJson(apiResponse.data);
@@ -73,16 +72,87 @@ class UserRepository extends BaseRepository {
   Future<UserInfo?> getUserInfo() async {
     final apiResponse = await appGet(Api.userInfo);
     final data = UserInfo.fromJson(apiResponse.data);
-    // App.userInfo = data;
+    App.userInfo = data;
     return data;
   }
 
   Future<dynamic> emailVerify(
       {required String email}) async {
     var params = {
-      'email': 'user@gmail.com',
+      'email': email,
     };
     final apiResponse = await appPost(Api.emailVerify, data: params);
+    return apiResponse.data;
+  }
+
+  Future<dynamic> registerWithEmail(
+      {required String email, required String otpCode, required String password}) async {
+    var params = {
+      'email': email,
+      'optCode': otpCode,
+      'password': password
+    };
+    final apiResponse = await appPost(Api.emailRegister, data: params);
+    return apiResponse.data;
+  }
+
+  Future<dynamic> forgetPassSendOTPByEmail(
+      {required String email}) async {
+    var params = {
+      'email': email,
+    };
+    final apiResponse = await appPost(Api.forgetPassSendOTPByEmail, data: params);
+    return apiResponse.data;
+  }
+
+  Future<dynamic> verifyOTPForgetPassByEmail(
+      {required String email, required String optCode}) async {
+    var params = {
+      'email': email,
+      'optCode': optCode
+    };
+    final apiResponse = await appPost(Api.verifyOTPForgetPassByEmail, data: params);
+    return apiResponse.data;
+  }
+
+  Future<dynamic> forgetPassByEmail(
+      {required String email, required String verifyUuid, required String password}) async {
+    var params = {
+      'email': email,
+      'verifyUuid': verifyUuid,
+      'password': password
+    };
+    final apiResponse = await appPost(Api.forgetPassByEmail, data: params);
+    return apiResponse.data;
+  }
+
+  Future<dynamic> forgetPassSendOTPByPhone(
+      {required String phone}) async {
+    var params = {
+      'phone': phone,
+    };
+    final apiResponse = await appPost(Api.forgetPassSendOTPByPhone, data: params);
+    return apiResponse.data;
+  }
+
+  Future<dynamic> forgetPassByPhone(
+      {required String password, required String verifyUuid, required String phone}) async {
+    var params = {
+      'verifyUuid': verifyUuid,
+      'password': password,
+      'phone': phone,
+    };
+    final apiResponse = await appPost(Api.forgetPassByPhone, data: params);
+    return apiResponse.data;
+  }
+
+  Future<dynamic> verifyOTPForgetPassByPhone(
+      {required String phone, required String optCode}) async {
+    var params = {
+      'phone': phone,
+      'optCode': optCode
+    };
+    final apiResponse = await appPost(Api.verifyOTPForgetPassByPhone, data: params);
     return apiResponse.data;
   }
 

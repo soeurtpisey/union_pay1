@@ -6,14 +6,21 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
 import 'package:union_pay/models/auth/phone_verify_model.dart';
 import 'package:union_pay/pages/auth/login_by_email_page.dart';
+import 'package:union_pay/pages/auth/select_country_code.dart';
+import '../../http/net/http_exceptions.dart';
+import '../../models/auth/email_verify_model.dart';
+import '../../repositories/prepaid_repository.dart';
+import '../../repositories/user_repository.dart';
 import '../../route/app_route.dart';
 import '../../route/base_route.dart';
 import '../../constants/style.dart';
 import '../../generated/l10n.dart';
 import '../../helper/colors.dart';
 import '../../res/images_res.dart';
+import '../../utils/view_util.dart';
 import '../../widgets/app_input_textfield.dart';
 import '../../widgets/common.dart';
+import '../../widgets/country_selection/code_country.dart';
 import '../../widgets/prefix_icon.dart';
 
 class LoginPage extends StatefulWidget {
@@ -25,6 +32,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final userRepository = UserRepository();
   FocusNode focusNode = FocusNode();
   String selectedCode = '855';
   bool showPhoneNumberClear = false;
@@ -34,6 +42,14 @@ class _LoginPageState extends State<LoginPage> {
   bool isShowBtnLoading = false;
   bool isError = false;
   String errorText = '';
+  List<CountryCode> listCountry = [];
+  PrepaidRepository prepaidRepository = PrepaidRepository();
+
+  @override
+  void initState() {
+    getRegions();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +112,22 @@ class _LoginPageState extends State<LoginPage> {
                     prefixFontSize: 16.0,
                     iconColor: AppColors.primaryColor,
                     content: '+' + selectedCode + ' ',
-                    onTap: () {}),
+                    onTap: () {
+                      showSheet(
+                          context,
+                          SelectCountryPage(
+                            onResult:
+                                (CountryCode value) {
+                              setState(() {
+                                selectedCode =
+                                    (value.dialCode ??
+                                        '')
+                                        .substring(1);
+                              });
+                            },
+                            regions: listCountry,
+                          ));
+                    }),
 
                 suffixIcon: showPhoneNumberClear ? IconButton(
                   onPressed: () {
@@ -106,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   icon: const Icon(Icons.close, size: 22, color: AppColors.color79767D),
                 ) : null,
-                hintText: 'phone number',
+                hintText: S().label_phone_number.toLowerCase(),
                 hintStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -126,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
           AppTextInput(
             isRequiredField: true,
             onTextChanged: (text) {
-              checkEnableRegisterButton();
+              checkEnableLoginButton();
             },
             controller: passwordController,
             hint: S.current.password,
@@ -153,8 +184,12 @@ class _LoginPageState extends State<LoginPage> {
             children: [
             Expanded(
                 child: InkWell(
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
                   onTap: () {
-                    NavigatorUtils.jump(AppModuleRoute.verifyCodePage, arguments: PhoneVerifyModel(phoneNumberController.text, passwordController.text));
+                    ///arguments = true -> forget password by phone
+                    NavigatorUtils.jump(AppModuleRoute.resetPasswordOtpPage, arguments: true);
                   },
                     child: cText(S().forget_password, fontSize: 15, color: AppColors.primaryColor, textAlign: TextAlign.right)
                 )
@@ -176,7 +211,6 @@ class _LoginPageState extends State<LoginPage> {
               margin: const EdgeInsets.only(top: 24.0),
               height: 42.0),
           btnWithLoading(
-              isLoading: isShowBtnLoading,
               title: S.current.login_by_email,
               margin: EdgeInsets.zero,
               backgroundColor: Colors.white,
@@ -193,23 +227,52 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void checkEnableRegisterButton() {
+  void checkEnableLoginButton() {
     setState(() {
       buttonActive = (phoneNumberController.text.isNotEmpty &&
           passwordController.text.isNotEmpty) ? true : false;
     });
   }
 
-  void onClickLoginButton() {
-    if (passwordController.text != '1234') {
+  void onClickLoginButton() async {
+    setState(() {
+      isShowBtnLoading = true;
+    });
+    try {
+      var response = await userRepository.loginWithPhone(
+          password: passwordController.text.removeAllWhitespace,
+          phone: '+$selectedCode${phoneNumberController.text.removeAllWhitespace}');
+      if (response != null) {
+        NavigatorUtils.jump(AppModuleRoute.homePage);
+      }
+    } catch (error) {
+      if (error is UnknownException) {
+        if (error.status == 'PWD_ERROR') {
+          errorText = S().password_incorrect;
+        } else {
+          errorText = error.message;
+        }
+      }
       setState(() {
+        isShowBtnLoading = false;
         isError = true;
-        errorText = S().password_incorrect;
+      });
+    } finally {
+      setState(() {
+        isShowBtnLoading = false;
       });
     }
   }
 
-  void checkEnableLoginButton() {
-
+  void getRegions() async {
+    try {
+      var regions = await prepaidRepository.getCountryRegion();
+      setState(() {
+        listCountry.addAll(regions);
+      });
+    } catch (e) {
+      // error
+      print(e);
+    }
   }
 }

@@ -4,6 +4,7 @@ import 'package:union_pay/helper/colors.dart';
 import 'package:union_pay/pages/mine/mine_page.dart';
 import 'package:union_pay/pages/my_card/view.dart';
 import 'package:union_pay/res/images_res.dart';
+import '../../app/base/app.dart';
 import '../../generated/l10n.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,6 +15,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var selectedIndex = 0;
   final pageNo = [MyCardPage(), MinePage()];
+
+  @override
+  void initState() {
+    super.initState();
+    getUserProfile();
+  }
+
+  void getUserProfile() async {
+    try {
+      await App.userRepository?.getUserInfo();
+    } catch(e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

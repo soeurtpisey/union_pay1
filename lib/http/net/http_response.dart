@@ -30,7 +30,7 @@ class HttpResponse {
   }
 
   HttpResponse.failure({String? errorMsg, String? errorCode}) {
-    error = BadRequestException(message: errorMsg, code: errorCode);
+    error = BadRequestException(message: errorMsg, status: errorCode);
     ok = false;
   }
 

@@ -26,7 +26,6 @@ class DioClientController extends GetxService {
             (RequestOptions options, RequestInterceptorHandler handler) async {
           return handler.next(options);
         }, onError: (error, handler) async {
-
           if (error.response?.statusCode != 200) {
             var data = error.response?.data;
             if (data != null && data is Map) {

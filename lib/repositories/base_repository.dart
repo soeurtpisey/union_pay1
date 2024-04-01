@@ -12,19 +12,7 @@ class BaseRepository {
     if (params?.containsKey('refreshToken') != true || params == null) {
       await App.refreshToken();
     }
-    final ts = (DateTime.now().millisecondsSinceEpoch ~/ 1000).toInt();
-    var lang = App.language;
-    if (lang == 'km') {
-      lang = 'kh';
-    }
-    final data = <String, dynamic>{
-      'lang': lang
-    };
-    // var deviceId = App.getDeviceId();
-    // if (deviceId != null) {
-    //   data['deviceId'] = deviceId;
-    // }
-
+    final data = <String, dynamic>{};
     if (params != null) {
       params.forEach((key, value) {
         if (value != null) {

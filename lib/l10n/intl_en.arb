@@ -15,6 +15,7 @@
 "resend": "Resend",
 "verify_code": "Verification Code",
 "enter_code_we_have_sent": "Enter the code we’ve sent to your email {email}",
+"enter_code_we_have_sent_to_phone": "Enter the code we’ve sent to {phone}",
 "reset_password": "Reset Password",
 "my_card": "My Card",
 "forget_password": "Forget password?",
@@ -199,5 +200,13 @@
 "un_freeze_card": "Unfreeze card",
 "unfreeze": "Unfreeze",
 "unfreeze_success": "Unfreeze successfully",
-"prepaid_card_share_account": "Hello! Below are my {accountName} account details:\n\nAccount - Holder Name: {name} \nAccount Number: {accountNumber} \n\nOr click the link below to send payment:\n{link} "
+"prepaid_card_share_account": "Hello! Below are my {accountName} account details:\n\nAccount - Holder Name: {name} \nAccount Number: {accountNumber} \n\nOr click the link below to send payment:\n{link} ",
+"incorrect_verify_code": "Incorrect verification code",
+"email_already_exits": "This email is already registered",
+"phone_already_exits": "This phone is already registered",
+"account_not_exits": "This account does not exits.",
+"enter_your_phone_number": "Enter your phone number",
+"select_country_code": "Select Country Code",
+"search_country_code_hint": "Search country code or name",
+"get_otp": "Get OTP"
 }

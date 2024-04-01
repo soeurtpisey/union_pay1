@@ -18,21 +18,32 @@ class Api {
   static String get uploadSingleFile => 'uploadSingleFile';
 
   //--------------login start--------------//
-  static String get login => 'auth/login';
+  static String get emailLogin => 'bongloy/user/login/email';
+  static String get phoneLogin => 'bongloy/user/login/phone';
   //-----------------login end-----------------//
 
   //--------------Register--------------//
   static String get emailRegister => 'bongloy/user/register/email';
   static String get emailVerify => 'bongloy/user/register/optCode';
+  static String get phoneRegister => 'bongloy/user/register/phone';
   //-----------------Register end-----------------//
 
+  //--------------Forget Password--------------//
+  static String get forgetPassSendOTPByEmail => 'bongloy/user/changePassword/optCode/email';
+  static String get forgetPassByEmail => 'bongloy/user/changePassword/email';
+  static String get verifyOTPForgetPassByEmail => 'bongloy/user/changePassword/verifyOptCode/email';
+  static String get forgetPassSendOTPByPhone => 'bongloy/user/changePassword/optCode/phone';
+  static String get verifyOTPForgetPassByPhone => 'bongloy/user/changePassword/verifyOptCode/phone';
+  static String get forgetPassByPhone => 'bongloy/user/changePassword/phone';
+  //-----------------Forget Password end-----------------//
 
   //----------------Refresh Session----------------//
   static String get refreshToken => 'auth/refreshToken';
   //----------------Refresh Session end------------//
 
   //----------------User Info----------------//
-  static String get userInfo => 'auth/info';
+  static String get userInfo => 'bongloy/user/userInfo';
+  //----------------User Info end-------------//
 
   //-----------------Union Pay------------------//
 

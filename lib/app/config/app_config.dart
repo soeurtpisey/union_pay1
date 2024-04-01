@@ -41,7 +41,7 @@ class Env {
   // dev环境
   static final EnvConfig _devConfig = EnvConfig(
     appTitle: 'Union Pay Dev',
-    apiUrl: 'https://dev-api.ipagrato.com',
+    apiUrl: 'https://dev-api.ipagrato.com/',
   );
 
   static String get apiUrl => Env.envConfig.apiUrl;

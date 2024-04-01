@@ -2,23 +2,18 @@
 import 'package:union_pay/models/user/user_info.dart';
 import '../generated/json/base/json_field.dart';
 import '../generated/json/user_session.g.dart';
-
 @JsonSerializable()
 class UserSession {
-  int? expiredIn;
-  int? expiredTime;
+  int? expireSecond;
+  int? expireTime;
   String? token;
-  String? refreshToken;
-  String? tokenType;
   int? walletId;
   UserInfo? userInfo;
 
   UserSession({
-    this.expiredIn,
-    this.expiredTime,
+    this.expireSecond,
+    this.expireTime,
     this.token,
-    this.refreshToken,
-    this.tokenType,
     this.walletId,
     this.userInfo
   });
