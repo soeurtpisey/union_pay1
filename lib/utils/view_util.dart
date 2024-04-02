@@ -95,3 +95,11 @@ Positioned buildPageLoadingStack(bool? visible, {Color? color}) {
             ),
           )));
 }
+
+Widget buildLoading(bool? visible) {
+  return Visibility(
+      visible: visible == true,
+      child: const Center(
+        child: CupertinoActivityIndicator(),
+      ));
+}

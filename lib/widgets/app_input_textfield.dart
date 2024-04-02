@@ -25,6 +25,7 @@ class AppTextInput extends StatelessWidget {
   final String? errorText;
   final List<TextInputFormatter>? inputFormatters;
   final int? maxLines;
+  final int? maxLength;
 
   const AppTextInput({
     Key? key,
@@ -47,7 +48,8 @@ class AppTextInput extends StatelessWidget {
     this.suffixIcon,
     this.errorText,
     this.inputFormatters,
-    this.maxLines
+    this.maxLines,
+    this.maxLength
 
 
   }) : super(key: key);
@@ -57,6 +59,7 @@ class AppTextInput extends StatelessWidget {
       focusNode: focusNode,
       onTap: onTap,
       enabled: enabled,
+      maxLength: maxLength,
       textCapitalization: textCapitalization,
       key: key,
       onChanged: onTextChanged,

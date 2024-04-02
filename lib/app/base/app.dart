@@ -162,3 +162,15 @@ class App {
     userInfo = null;
   }
 }
+
+bool isKm() {
+  return App.language == 'km';
+}
+
+bool isZh() {
+  return App.language == 'zh';
+}
+
+bool isEn() {
+  return App.language == 'en';
+}

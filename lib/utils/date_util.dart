@@ -68,6 +68,11 @@ class DateUtil {
     return formatDate(getDateTimeByMs(ms, isUtc: isUtc), format: format);
   }
 
+  static String formatTime(int time, {String format = 'yyyy-MM-dd HH:mm'}) {
+    var date = DateTime.fromMillisecondsSinceEpoch(time);
+    return DateFormat(format).format(date);
+  }
+
   /// format date by date str.
   /// dateStr 日期字符串
   static String? formatDateStr(String dateStr, {bool? isUtc, String? format}) {

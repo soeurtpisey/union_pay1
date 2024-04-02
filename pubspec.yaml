@@ -77,6 +77,8 @@ dependencies:
   image: ^3.0.2
   expandable: ^5.0.1
   wechat_assets_picker: 9.0.0-dev.2
+  grouped_list: ^5.1.2
+  flutter_datetime_picker_plus: ^2.1.0
   share: ^2.0.1
   custom_pop_up_menu:
     path: ./custom_packages/custom_pop_up_menu-1.2.3+1
@@ -116,6 +118,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/data/country_code_info.json
     - assets/data/country_dial_info.json
     - images/card_ic.png
     - images/card_selected_ic.png
@@ -126,17 +129,31 @@ flutter:
     - images/ic_apply_card_tip_icon.png
     - images/ic_apply_card_under_review.png
     - images/ic_bank_card_done.png
+    - images/ic_card_activated.png
     - images/ic_card_camera.png
     - images/ic_card_config_icon.png
+    - images/ic_card_favorite_add.png
     - images/ic_card_favorite_delete.png
     - images/ic_card_favorite_edit.png
+    - images/ic_card_favorte_no_list.png
     - images/ic_card_front_icon.png
+    - images/ic_card_history_calendar.png
+    - images/ic_card_manager_favorite.png
+    - images/ic_card_manager_freeze.png
+    - images/ic_card_manager_rename.png
+    - images/ic_card_manager_time_limit.png
     - images/ic_card_passport.png
+    - images/ic_card_rename_prefix.png
     - images/ic_card_visible_v2.png
     - images/ic_failure_80.webp
+    - images/ic_favorite_no_list_add.png
     - images/ic_floating_new_card.png
     - images/ic_freeze_24.webp
     - images/ic_freeze_80.webp
+    - images/ic_manager_cvv.png
+    - images/ic_manager_receipt_history.png
+    - images/ic_manager_top_up.png
+    - images/ic_manager_transfer.png
     - images/ic_new_card_title.png
     - images/ic_no_card_here.png
     - images/ic_notional_id_card.png
@@ -160,6 +177,7 @@ flutter:
     - images/icon_prepaid_unionpay_white_v2.webp
     - images/icon_prepaid_upay_v2.webp
     - images/icon_prepaid_virtual_v2.png
+    - images/icon_prepaid_warning_v2.webp
     - images/language_ic.png
     - images/logout_ic.png
     - images/new_card_ic.png
@@ -201,6 +219,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: CreditCard
+      fonts:
+        - asset: assets/fonts/CreditCard.ttf
+    - family: CustomIcons
+      fonts:
+        - asset: assets/fonts/CustomIcons.ttf
+    - family: khmer_os_battambong
+      fonts:
+        - asset: assets/fonts/khmer_os_battambong.ttf
 flutter_intl:
   enabled: true
   class_name: S

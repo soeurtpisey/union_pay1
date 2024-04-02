@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:union_pay/helper/share_preference_keys.dart';
 
+import '../app/base/app.dart';
 import '../generated/json/base/json_convert_content.dart';
 import '../models/prepaid/res/union_pay_card_res_model.dart';
 import '../utils/sp_util.dart';

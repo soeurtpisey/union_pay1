@@ -1,0 +1,46 @@
+{
+  "name": "CustomIcons",
+  "css_prefix_text": "",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "04f7e0bbd0bba658464ca2b49097f37f",
+      "css": "qrcode",
+      "code": 59392,
+      "src": "elusive"
+    },
+    {
+      "uid": "d58dc0a0927a7dea2992f615f2fbf400",
+      "css": "wallet",
+      "code": 59393,
+      "src": "linecons"
+    },
+    {
+      "uid": "b8e88705f42bd79580be828233c65da0",
+      "css": "money",
+      "code": 59394,
+      "src": "linecons"
+    },
+    {
+      "uid": "23663ae93da8356f8abf2d392a1c29e3",
+      "css": "sad",
+      "code": 59477,
+      "src": "linearicons"
+    },
+    {
+      "uid": "6020aff067fc3c119cdd75daa5249220",
+      "css": "exchange",
+      "code": 61676,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "b75af8c5ac556bc6953f343d3ff5986b",
+      "css": "user",
+      "code": 59434,
+      "src": "linearicons"
+    }
+  ]
+}
