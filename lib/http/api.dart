@@ -49,107 +49,105 @@ class Api {
   //-----------------Union Pay------------------//
 
   //银联卡开卡申请 新客户
-  static String get unionPayCardApply => 'unionPayCard/unionPayCardOpen';
+  static String get unionPayCardApply => 'bongloy/v1/unionPayCard/unionPayCardOpen';
 
   //跳过鉴权接口，伪装他人身份id
-  static String get unionPayCardApplySkip =>
-      'unionPayCard/unionPayCardOpenSkip';
+  static String get unionPayCardApplySkip => 'bongloy/v1/unionPayCard/unionPayCardOpenSkip';
 
   //银联卡开卡申请 老客户
-  static String get unionPayCardOldApply => 'unionPayCard/unionPayCardOpenOld';
+  static String get unionPayCardOldApply => 'bongloy/v1/unionPayCard/unionPayCardOpenOld';
 
   //检查老客户参数
-  static String get unionPayCardOpenOldCheck => 'unionPayCard/unionPayCardOpenOldCheck';
+  static String get unionPayCardOpenOldCheck => 'bongloy/v1/unionPayCard/unionPayCardOpenOldCheck';
 
   //银联卡开卡申请 老客户   //跳过鉴权接口，伪装他人身份id
-  static String get unionPayCardOldApplySkip =>
-      'unionPayCard/unionPayCardOpenOldSkip';
+  static String get unionPayCardOldApplySkip => 'bongloy/v1/unionPayCard/unionPayCardOpenOldSkip';
 
   //实名卡激活
-  static String get cardInfoActive => 'unionPayCard/cardInfoActive';
+  static String get cardInfoActive => 'bongloy/v1/unionPayCard/cardInfoActive';
 
   //银联卡 充值
-  static String get unionPayTopUp => 'unionPayCard/unionPayTopUp';
+  static String get unionPayTopUp => 'bongloy/v1/unionPayCard/unionPayTopUp';
 
   //预充值
-  static String get unionPrePayTopUp => 'unionPayCard/unionPrePayTopUp';
+  static String get unionPrePayTopUp => 'bongloy/v1/unionPayCard/unionPrePayTopUp';
 
   //获取客户信息接口
-  static String get unionPayCardCustomer => 'unionPayCard/unionPayCardCustomer';
+  static String get unionPayCardCustomer => 'bongloy/v1/unionPayCard/unionPayCardCustomer';
 
   //卡转UPAY
-  static String get bakongMemberTransfer => 'unionPayCard/bakongMemberTransfer';
+  static String get bakongMemberTransfer => 'bongloy/v1/unionPayCard/bakongMemberTransfer';
 
   //持卡人姓名查询
-  static String get customerInfoQuery => 'unionPayCard/customerInfoQuery';
+  static String get customerInfoQuery => 'bongloy/v1/unionPayCard/customerInfoQuery';
 
   //银联卡：转账
-  static String get cardTransfer => 'unionPayCard/cardTransfer';
+  static String get cardTransfer => 'bongloy/v1/unionPayCard/cardTransfer';
 
   //卡配置信息接口
-  static String get blCardConfig => 'unionPayCard/blCardConfig';
+  static String get blCardConfig => 'bongloy/v1/unionPayCard/blCardConfig';
 
   //卡列表接口
-  static String get blCardList => 'unionPayCard/blCardList';
+  static String get blCardList => 'bongloy/v1/unionPayCard/blCardList';
 
   //申请卡是否支持
-  static String get blCardApplyStatus => 'unionPayCard/blCardApplyStatus';
-  static String get blCardApplyStatusNew => 'unionPayCard/blCardApplyStatusNew';
+  static String get blCardApplyStatus => 'bongloy/v1/unionPayCard/blCardApplyStatus';
+  static String get blCardApplyStatusNew => 'bongloy/v1/unionPayCard/blCardApplyStatusNew';
 
   //卡密码修改
-  static String get cardPwdModify => 'unionPayCard/cardPwdModify';
+  static String get cardPwdModify => 'bongloy/v1/unionPayCard/cardPwdModify';
 
   //省区社区
-  static String get getProvince => 'region/getProvinces';
+  static String get getProvince => 'bongloy/v1/region/getProvinces';
 
-  static String get getDistricts => 'region/getDistricts';
+  static String get getDistricts => 'bongloy/v1/region/getDistricts';
 
-  static String get getCommunes => 'region/getCommunes';
+  static String get getCommunes => 'bongloy/v1/region/getCommunes';
 
   //保存模版
-  static String get saveOrUpdateTemplate => 'unionPayCard/saveOrUpdateTemplate';
+  static String get saveOrUpdateTemplate => 'bongloy/v1/unionPayCard/saveOrUpdateTemplate';
 
   //模版列表
-  static String get templateList => 'unionPayCard/listTemplate';
+  static String get templateList => 'bongloy/v1/unionPayCard/listTemplate';
 
   //删除模版
-  static String get delTemplate => 'unionPayCard/delTemplate';
+  static String get delTemplate => 'bongloy/v1/unionPayCard/delTemplate';
 
   //冻结卡
-  static String get freezeCard => 'unionPayCard/freezeCard';
+  static String get freezeCard => 'bongloy/v1/unionPayCard/freezeCard';
 
   //解冻卡
-  static String get unFreezeCard => 'unionPayCard/unFreezeCard';
+  static String get unFreezeCard => 'bongloy/v1/unionPayCard/unFreezeCard';
 
   //历史列表
-  static String get cardTransactionList => 'unionPayCard/cardTransactionList';
+  static String get cardTransactionList => 'bongloy/v1/unionPayCard/cardTransactionList';
 
   //同步bongloy的历史列表
   static String get cardBongLoyTransactionList =>
-      'unionPayCard/cardBongLoyTransactionList';
+      'bongloy/v1/unionPayCard/cardBongLoyTransactionList';
 
   //修改交易限额
-  static String get setCardLimit => 'unionPayCard/setCardLimit';
+  static String get setCardLimit => 'bongloy/v1/unionPayCard/setCardLimit';
 
   //修改卡别名
-  static String get accountName => 'unionPayCard/accountName';
+  static String get accountName => 'bongloy/v1/unionPayCard/accountName';
 
   //获取申请列表
-  static String get blCardApplyList => 'unionPayCard/blCardApplyList';
+  static String get blCardApplyList => 'bongloy/v1/unionPayCard/blCardApplyList';
 
   //保存cvv
-  static String get setCardCVV => 'unionPayCard/setCardCVV';
+  static String get setCardCVV => 'bongloy/v1/unionPayCard/setCardCVV';
 
   //查询交易限制
-  static String get queryCardLimit => 'unionPayCard/queryCardLimit';
+  static String get queryCardLimit => 'bongloy/v1/unionPayCard/queryCardLimit';
 
   //查询cvv
-  static String get getCVV => 'unionPayCard/getCVV';
+  static String get getCVV => 'bongloy/v1/unionPayCard/getCVV';
 
   //根据审核ID获取拒审记录
-  static String get getApplyRecord => 'unionPayCard/getApplyRecord';
+  static String get getApplyRecord => 'bongloy/v1/unionPayCard/getApplyRecord';
 
-  static String get getApplyRecordById => 'unionPayCard/getApplyRecordById';
+  static String get getApplyRecordById => 'bongloy/v1/unionPayCard/getApplyRecordById';
 
 
 

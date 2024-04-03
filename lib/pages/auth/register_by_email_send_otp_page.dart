@@ -42,7 +42,7 @@ class _RegisterByEmailSendOPTPageState extends State<RegisterByEmailSendOPTPage>
                   fontSize: 24, fontWeight: FontWeight.w500, color: Colors.black),
               const SizedBox(height: 5),
               cText(S.current.enter_email_will_send_otp,
-                  fontSize: 16, color: Colors.black.withOpacity(0.45)),
+                  fontSize: 16, color: Colors.black.withOpacity(0.45), textAlign: TextAlign.center),
               const SizedBox(height: 27),
               Visibility(
                 visible: isError,

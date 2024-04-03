@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
+import 'package:union_pay/pages/prepaid_card/apply_card/apply_card_view.dart';
+import 'package:union_pay/pages/prepaid_card/apply_form/apply_form_view.dart';
+import 'package:union_pay/pages/prepaid_card/apply_form_old/apply_form_old_view.dart';
 import 'package:union_pay/utils/view_util.dart';
 import '../../app/base/app.dart';
 import '../../constants/style.dart';
@@ -158,8 +161,10 @@ class _MyCardPageState extends State<MyCardPage> {
   void pushFormPage(BuildContext context, UnionCardType unionCardType) {
     /// warning
     if (PrepaidCardHelper.blCardList.isEmpty) {
+      Get.to(ApplyFormPage(unionCardType: unionCardType));
       // context.router.push(ApplyFormPageRoute(unionCardType: unionCardType));
     } else {
+      Get.to(ApplyFormOldPage(unionCardType: unionCardType));
       // context.router.push(ApplyFormOldPageRoute(unionCardType: unionCardType));
     }
   }
@@ -175,14 +180,10 @@ class _MyCardPageState extends State<MyCardPage> {
     var value = await showSheet(context, NewCardBottom(applyStatus: applyStatus));
     if (value != null && value is NewCardParam) {
       if (value.cardType == UnionCardType.physicalCard) {
-        if (isAdminApplyCard) {
+        if (value.isAudit) {
           pushFormPage(context, UnionCardType.physicalCard);
         } else {
-          if (value.isAudit) {
-            pushFormPage(context, UnionCardType.physicalCard);
-          } else {
-            showToast(S().you_card_apply_status_tips);
-          }
+          showToast(S().you_card_apply_status_tips);
         }
       } else {
         if (value.isAudit) {

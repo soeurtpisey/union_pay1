@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:union_pay/extensions/string_extension.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
+import 'package:union_pay/pages/prepaid_card/apply_form/apply_form_view.dart';
+import 'package:union_pay/pages/prepaid_card/apply_form_old/apply_form_old_view.dart';
 import 'package:union_pay/res/images_res.dart';
 import '../../../constants/style.dart';
 import '../../../generated/l10n.dart';
 import '../../../helper/colors.dart';
 import '../../../helper/notify.dart';
 import '../../../helper/prepaid_card_helper.dart';
+import '../../../models/prepaid/enums/union_card_type.dart';
 import '../../../widgets/common.dart';
 import 'apply_card_logic.dart';
 
@@ -39,10 +42,12 @@ class _ApplyCardPageState extends State<ApplyCardPage> {
                 S().virtual_card_application, '', onTap: () {
               if (PrepaidCardHelper.blCardList.isEmpty) {
                 /// warning
+                Get.to(ApplyFormPage(unionCardType: UnionCardType.virtualCard), arguments: UnionCardType.virtualCard);
                 // context.pushRoute(ApplyFormPageRoute(
                 //     unionCardType: UnionCardType.virtualCard));
               } else {
                 /// warning
+                Get.to(const ApplyFormOldPage(unionCardType: UnionCardType.virtualCard));
                 // context.pushRoute(ApplyFormOldPageRoute(
                 //     unionCardType: UnionCardType.virtualCard));
               }
@@ -54,10 +59,12 @@ class _ApplyCardPageState extends State<ApplyCardPage> {
               if (isAdminApplyCard) {
                 if(PrepaidCardHelper.blCardList.isEmpty) {
                   /// warning
+                  Get.to(ApplyFormPage(), arguments: UnionCardType.physicalCard);
                   // await context.pushRoute(ApplyFormPageRoute(
                   //     unionCardType: UnionCardType.physicalCard));
-                }else{
+                } else {
                   /// warning
+                  Get.to(const ApplyFormOldPage(), arguments: UnionCardType.physicalCard);
                   // await context.pushRoute(ApplyFormOldPageRoute(
                   //     unionCardType: UnionCardType.physicalCard));
                 }

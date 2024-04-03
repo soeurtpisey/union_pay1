@@ -25,20 +25,6 @@ class HiveHelper {
     }
   }
 
-  static void setLastLoginUserName(String? username){
-    if(username!=null&&username!=''){
-      HiveBoxes.globalBox.put(HiveKey.keyLastLoginUserName, username);
-    }
-  }
-
-  static String? getLastLoginUserName() {
-    var userSession = HiveBoxes.globalBox.get(HiveKey.keyLastLoginUserName,defaultValue: null);
-    if (userSession != null) {
-      return userSession;
-    }
-    return null;
-  }
-
   static UserSession? getUserSession() {
     var userSession = HiveBoxes.globalBox.get(HiveKey.keyUserSession,defaultValue: null);
     if (userSession != null) {
