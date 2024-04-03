@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:union_pay/models/auth/phone_verify_model.dart';
+import 'package:union_pay/app/base/app.dart';
 import 'package:union_pay/pages/home/home_page.dart';
 import 'package:union_pay/pages/start_page.dart';
-import '../models/auth/email_verify_model.dart';
 import '../pages/not_found_page.dart';
 import 'app_route.dart';
-
-/// ////////////////////////////////////////////
-/// @Author: mac
-/// @Date:
-/// @Email:
-/// @Description:
-/// /////////////////////////////////////////////
 
 class WeRouteManager {
   /// 找不到页面
@@ -22,15 +14,15 @@ class WeRouteManager {
   static void initGetXRoute() {
     routes.addAll(AppModuleRoute().getRoutes());
   }
+  //
+  // static final notFoundRoute = GetPage(
+  //   name: notFound,
+  //   page: () => const NotFoundPage(),
+  // );
 
   static final notFoundRoute = GetPage(
     name: notFound,
-    page: () => const NotFoundPage(),
-  );
-
-  static final homePageRoute = GetPage(
-    name: notFound,
-    page: () => StartPage(),
+    page: () => App.isLogin() ? HomePage() : StartPage(),
   );
 
   /// GetX路由
@@ -105,6 +97,14 @@ class NavigatorUtils {
         result: result, closeOverlays: closeOverlays, canPop: canPop, id: id);
   }
 
+  static String initRoute() {
+    if (App.isLogin()) {
+      return AppModuleRoute.homePage;
+    } else {
+      return AppModuleRoute.startPage;
+    }
+  }
+
   static void popUntil({RoutePredicate predicate = predicateX}) {
     Get.until(predicateX);
   }
@@ -115,10 +115,6 @@ class NavigatorUtils {
     } else {
       return false;
     }
-  }
-
-  static String initRoute() {
-    return AppModuleRoute.startPage;
   }
 
   static void goBackWithParams<T>(result) {

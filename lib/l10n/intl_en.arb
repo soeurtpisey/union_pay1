@@ -278,5 +278,8 @@
 "no_favorite_here": "No favorite here",
 "new_favorite": "New Favorite",
 "tourPage_SlideVC_Title": "VIRTUAL CARD",
-"get_otp": "Get OTP"
+"get_otp": "Get OTP",
+"choose_language": "Choose language",
+"email_already_exits": "This email is already registered.",
+"set_password": "Set Password"
 }

@@ -1,4 +1,4 @@
-import 'package:union_pay/pages/auth/forget_password_otp_page.dart';
+import 'package:union_pay/pages/auth/forget_password_send_otp_page.dart';
 import 'package:union_pay/pages/auth/login_by_email_page.dart';
 import 'package:union_pay/pages/auth/verify_code_page.dart';
 import 'package:union_pay/pages/home/home_page.dart';

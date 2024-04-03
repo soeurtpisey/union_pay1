@@ -72,7 +72,12 @@ class _ForgetPasswordOTPPageState extends State<ForgetPasswordOTPPage> {
       await userRepository.forgetPassSendOTPByEmail(email: inputController.text.removeAllWhitespace);
       if (response != null) {
         /// success
-        NavigatorUtils.jump(AppModuleRoute.verifyCodePage, arguments: PhoneVerifyModel(phone: '+$selectedCode${inputController.text.removeAllWhitespace}', password: '', isForgetPass: true));
+        NavigatorUtils.jump(AppModuleRoute.verifyCodePage,
+            arguments: isPhoneNumber ?
+            PhoneVerifyModel(phone: '+$selectedCode${inputController.text.removeAllWhitespace}', isForgetPass: true)
+                :
+            EmailVerifyModel(email: inputController.text.removeAllWhitespace, isForgetPass: true)
+        );
       }
     } catch (error) {
       print(error);
@@ -126,7 +131,7 @@ class _ForgetPasswordOTPPageState extends State<ForgetPasswordOTPPage> {
                         Icons.keyboard_arrow_down_sharp,
                         prefixFontSize: 16.0,
                         iconColor: AppColors.primaryColor,
-                        content: '+' + selectedCode + ' ',
+                        content: '+$selectedCode ',
                         onTap: () {
                           showSheet(
                               context,

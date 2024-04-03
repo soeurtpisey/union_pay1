@@ -8,11 +8,13 @@ import 'package:pinput/pinput.dart';
 import 'package:union_pay/http/net/dio_new.dart';
 import 'package:union_pay/models/auth/email_verify_model.dart';
 import 'package:union_pay/models/auth/phone_verify_model.dart';
+import 'package:union_pay/pages/auth/register_by_email_page.dart';
 import 'package:union_pay/pages/home/home_page.dart';
 import 'package:union_pay/repositories/user_repository.dart';
 import 'package:union_pay/utils/encrypt_util.dart';
 import '../../generated/l10n.dart';
 import '../../helper/colors.dart';
+import '../../models/auth/email_register_model.dart';
 import '../../models/auth/forget_password_model.dart';
 import '../../route/app_route.dart';
 import '../../route/base_route.dart';
@@ -35,7 +37,6 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
   String errorMessage = '';
   bool isSuccessVerify = false;
   String sendTo = '';
-  String pass = '';
   bool isLoading = false;
   bool isResetPassword = false;
   bool isPhoneNumber = false;
@@ -47,12 +48,10 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
     if (arguments != null) {
       if (arguments is PhoneVerifyModel) {
         sendTo = arguments.phone;
-        pass = arguments.password;
         isResetPassword = arguments.isForgetPass;
         isPhoneNumber = true;
       } else if (arguments is EmailVerifyModel) {
         sendTo = arguments.email;
-        pass = arguments.password ?? '';
         isResetPassword = arguments.isForgetPass;
         isPhoneNumber = false;
       }
@@ -104,7 +103,7 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
                     isResetPassword ?
                     verifyOTPForResetPassword()
                     :
-                    requestVerifyLogin();
+                    verifyOTPForRegisterByEmail();
                   },
                   focusNode: pinPutFocusNode,
                   controller: pinPutController,
@@ -168,6 +167,30 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
     );
   }
 
+  PinTheme setPinStyle() {
+    var underlineColor = Colors.black;
+    if (hasError) {
+      if (pinPutController.text.length == 4) {
+        underlineColor = Colors.red;
+      } else {
+        underlineColor = Colors.black;
+      }
+    } else if (pinPutController.text.length == 4 && isSuccessVerify == true) {
+      underlineColor = AppColors.color00C958;
+    } else {
+      underlineColor = Colors.black;
+    }
+    return PinTheme(
+        width: 42,
+        height: 50,
+        textStyle: const TextStyle(
+            fontSize: 30.0, fontWeight: FontWeight.w500, color: Colors.black),
+        //GoogleFonts.poppins(fontSize: 30.0, fontWeight: FontWeight.w500, color: Colors.black),
+        decoration: BoxDecoration(
+            border:
+            Border(bottom: BorderSide(color: underlineColor, width: 3.0))));
+  }
+
   void startTimer() {
     setState(() {
       timeout = 60;
@@ -193,9 +216,30 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
     });
   }
 
-  void verifyEmail() async {
+  ///////////////////////// API Integrate /////////////////////////////
+
+  void resendOTPForForgetPassword() async {
     try {
-      var response = await userRepository.emailVerify(email: sendTo);
+      var response = isPhoneNumber ?
+      await userRepository.forgetPassSendOTPByPhone(phone: sendTo)
+          :
+      await userRepository.forgetPassSendOTPByEmail(email: sendTo)
+      ;
+      if (response != null) {
+        /// success
+        setState(() {
+          timeout = 0;
+          hasError = false;
+        });
+      }
+    } catch (error) {
+      print(error);
+    }
+  }
+
+  void resendOTPForRegisterByEmail() async {
+    try {
+      var response = await userRepository.emailRegisterSendOTP(email: sendTo);
       if (response != null) {
         /// success
         setState(() {
@@ -209,11 +253,15 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
   }
 
   void resendSmsCode() {
-    verifyEmail();
+    if (isResetPassword) {
+      resendOTPForForgetPassword();
+    } else {
+      resendOTPForRegisterByEmail();
+    }
     startTimer();
   }
 
-  /// Request Forget Password OTP
+  /// Request verify OTP for forget password by phone and by email
   void verifyOTPForResetPassword() async {
     setState(() {
       isLoading = true;
@@ -261,19 +309,21 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
     }
   }
 
-  /// Register
-  void requestVerifyLogin() async {
+  /// verify OTP for register by email
+  void verifyOTPForRegisterByEmail() async {
     setState(() {
       isLoading = true;
     });
     try {
-      var response = await userRepository.registerWithEmail(email: sendTo, otpCode: pinPutController.text, password: EncryptUtil.encodeMd5(pass).toString());
+      var response = await userRepository.emailRegisterVerifyOTP(email: sendTo, optCode: pinPutController.text);
       if (response != null) {
         /// success -> go to home page
         setState(() {
           timeout = 0;
         });
-        Get.to(HomePage());
+        NavigatorUtils.jump(AppModuleRoute.registerByEmailPage,
+            arguments: EmailRegisterModel(email: sendTo, verifyUuid: response));
+
       } else {
         setState(() {
           isLoading = false;
@@ -299,29 +349,5 @@ class _VerifyCodePageState extends State<VerifyCodePage> {
         isLoading = false;
       });
     }
-  }
-
-  PinTheme setPinStyle() {
-    var underlineColor = Colors.black;
-    if (hasError) {
-      if (pinPutController.text.length == 4) {
-        underlineColor = Colors.red;
-      } else {
-        underlineColor = Colors.black;
-      }
-    } else if (pinPutController.text.length == 4 && isSuccessVerify == true) {
-      underlineColor = AppColors.color00C958;
-    } else {
-      underlineColor = Colors.black;
-    }
-    return PinTheme(
-        width: 42,
-        height: 50,
-        textStyle: const TextStyle(
-            fontSize: 30.0, fontWeight: FontWeight.w500, color: Colors.black),
-        //GoogleFonts.poppins(fontSize: 30.0, fontWeight: FontWeight.w500, color: Colors.black),
-        decoration: BoxDecoration(
-            border:
-                Border(bottom: BorderSide(color: underlineColor, width: 3.0))));
   }
 }

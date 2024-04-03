@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
 import 'package:union_pay/pages/auth/register_by_email_page.dart';
+import 'package:union_pay/pages/auth/register_by_email_send_otp_page.dart';
 import 'package:union_pay/pages/auth/select_country_code.dart';
 import '../../constants/style.dart';
 import '../../generated/l10n.dart';
@@ -121,7 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Icons.keyboard_arrow_down_sharp,
                     prefixFontSize: 16.0,
                     iconColor: AppColors.primaryColor,
-                    content: '+' + selectedCode + ' ',
+                    content: '+$selectedCode ',
                     onTap: () {
                       showSheet(
                           context,
@@ -235,7 +236,7 @@ class _RegisterPageState extends State<RegisterPage> {
               backgroundColor: Colors.white,
               textColor: Colors.black,
               onTap: () {
-                Get.to(RegisterByEmailPage());
+                Get.to(RegisterByEmailSendOPTPage());
               })
               .intoContainer(
               color: AppColors.background,

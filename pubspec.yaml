@@ -120,8 +120,11 @@ flutter:
   assets:
     - assets/data/country_code_info.json
     - assets/data/country_dial_info.json
+    - images/cambodia_flag.png
     - images/card_ic.png
     - images/card_selected_ic.png
+    - images/chinese_flag.png
+    - images/english_flag.png
     - images/hide_eye.png
     - images/home_logo.png
     - images/ic_apply_card_rejected.png
@@ -179,6 +182,8 @@ flutter:
     - images/icon_prepaid_virtual_v2.png
     - images/icon_prepaid_warning_v2.webp
     - images/language_ic.png
+    - images/login_language_drop_down.png
+    - images/login_language_up_icon.png
     - images/logout_ic.png
     - images/new_card_ic.png
     - images/notification_card_ic.png
@@ -187,6 +192,7 @@ flutter:
     - images/phone_num_error.png
     - images/profile_ic.png
     - images/profile_selected_ic.png
+    - images/select_language_ic.png
     - images/show_eye.png
 
   # To add assets to your application, add an assets section, like this:

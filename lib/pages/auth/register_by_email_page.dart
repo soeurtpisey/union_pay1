@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
+import 'package:union_pay/http/net/dio_new.dart';
+import 'package:union_pay/models/auth/email_register_model.dart';
 import 'package:union_pay/models/auth/email_verify_model.dart';
+import 'package:union_pay/utils/encrypt_util.dart';
 import '../../repositories/user_repository.dart';
 import '../../route/app_route.dart';
 import '../../route/base_route.dart';
@@ -12,6 +16,7 @@ import '../../helper/colors.dart';
 import '../../res/images_res.dart';
 import '../../widgets/app_input_textfield.dart';
 import '../../widgets/common.dart';
+import '../home/home_page.dart';
 
 class RegisterByEmailPage extends StatefulWidget {
   @override
@@ -19,12 +24,10 @@ class RegisterByEmailPage extends StatefulWidget {
 }
 
 class _RegisterByEmailPageState extends State<RegisterByEmailPage> {
-  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final userRepository = UserRepository();
-
   FocusNode focusNode = FocusNode();
   bool buttonActive = false;
   bool isSecurePass = true;
@@ -32,6 +35,18 @@ class _RegisterByEmailPageState extends State<RegisterByEmailPage> {
   bool isError = false;
   String errorText = '';
   bool isLoading = false;
+  late EmailRegisterModel registerModel;
+
+  @override
+  void initState() {
+    super.initState();
+    var arguments = Get.arguments;
+    if (arguments != null) {
+      if (arguments is EmailRegisterModel) {
+        registerModel = arguments;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +59,12 @@ class _RegisterByEmailPageState extends State<RegisterByEmailPage> {
           child: Column(
             children: [
               const SizedBox(height: 32),
-              cText(S.current.enter_your_email, fontSize: 24, fontWeight: FontWeight.w500, color: Colors.black),
-
-              cText(S.current.enter_email_will_send_otp, fontSize: 16, color: Colors.black.withOpacity(0.45)),
-              const SizedBox(height: 30),
+              cText(S.current.set_password, fontSize: 24, fontWeight: FontWeight.w500, color: Colors.black),
               Visibility(
                 visible: isError,
                 child: Column(
                   children: [
+                    Gaps.vGap16,
                     Container(
                       height: 48,
                       decoration: const BoxDecoration(
@@ -72,18 +85,8 @@ class _RegisterByEmailPageState extends State<RegisterByEmailPage> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 16)
                   ],
                 ),
-              ),
-              AppTextInput(
-                isRequiredField: true,
-                onTextChanged: (text) {
-                  checkEnableRegisterButton();
-                },
-                controller: emailController,
-                hint: S.current.email,
-                keyboardType: TextInputType.text,
               ),
               Gaps.vGap16,
               AppTextInput(
@@ -156,8 +159,7 @@ class _RegisterByEmailPageState extends State<RegisterByEmailPage> {
 
   void checkEnableRegisterButton() {
     setState(() {
-      buttonActive = (emailController.text.isNotEmpty &&
-              passwordController.text.isNotEmpty &&
+      buttonActive = (passwordController.text.isNotEmpty &&
               confirmPasswordController.text.isNotEmpty)
           ? true
           : false;
@@ -165,14 +167,24 @@ class _RegisterByEmailPageState extends State<RegisterByEmailPage> {
   }
 
   void verifyEmail() async {
+    setState(() {
+      isLoading = true;
+      isError = false;
+    });
     try {
-      var response = await userRepository.emailVerify(email: emailController.text);
+      var response = await userRepository.registerWithEmail(
+          email: registerModel.email,
+          password: EncryptUtil.encodeMd5(passwordController.text.removeAllWhitespace).toString(),
+          verifyUuid: registerModel.verifyUuid);
       if (response != null) {
-        NavigatorUtils.jump(AppModuleRoute.verifyCodePage,
-            arguments: EmailVerifyModel(email: emailController.text, password: passwordController.text, isForgetPass: false));
+        /// success -> go to home page
+        Get.to(HomePage());
       }
     } catch (error) {
-      print(error);
+      if (error is UnknownException) {
+        errorText = error.message;
+        isError = true;
+      }
     } finally {
       setState(() {
         isLoading = false;

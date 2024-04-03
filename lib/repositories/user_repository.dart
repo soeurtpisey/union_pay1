@@ -76,23 +76,36 @@ class UserRepository extends BaseRepository {
     return data;
   }
 
-  Future<dynamic> emailVerify(
+  Future<dynamic> emailRegisterSendOTP(
       {required String email}) async {
     var params = {
       'email': email,
     };
-    final apiResponse = await appPost(Api.emailVerify, data: params);
+    final apiResponse = await appPost(Api.emailRegisterSendOTP, data: params);
     return apiResponse.data;
   }
 
-  Future<dynamic> registerWithEmail(
-      {required String email, required String otpCode, required String password}) async {
+  Future<dynamic> emailRegisterVerifyOTP(
+      {required String email, required String optCode}) async {
     var params = {
       'email': email,
-      'optCode': otpCode,
-      'password': password
+      'optCode': optCode
+    };
+    final apiResponse = await appPost(Api.emailRegisterVerifyOTP, data: params);
+    return apiResponse.data;
+  }
+
+
+  Future<dynamic> registerWithEmail(
+      {required String email, required String password, required String verifyUuid}) async {
+    var params = {
+      'email': email,
+      'password': password,
+      'verifyUuid': verifyUuid
     };
     final apiResponse = await appPost(Api.emailRegister, data: params);
+    final userSession = UserSession.fromJson(apiResponse.data);
+    await initConfig(userSession);
     return apiResponse.data;
   }
 

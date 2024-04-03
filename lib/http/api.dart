@@ -22,9 +22,10 @@ class Api {
   static String get phoneLogin => 'bongloy/user/login/phone';
   //-----------------login end-----------------//
 
-  //--------------Register--------------//
+  //--------------Register----------------//
   static String get emailRegister => 'bongloy/user/register/email';
-  static String get emailVerify => 'bongloy/user/register/optCode';
+  static String get emailRegisterSendOTP => 'bongloy/user/register/optCode';
+  static String get emailRegisterVerifyOTP => 'bongloy/user/register/verifyOptCode/email';
   static String get phoneRegister => 'bongloy/user/register/phone';
   //-----------------Register end-----------------//
 

@@ -11,6 +11,7 @@ class AppModuleRoute implements IModuleRoute {
   static const homePage = '/home_page';
   static const notificationListPage = '/notification_list_page';
   static const resetPasswordOtpPage = '/reset_password_otp_page';
+  static const registerByEmailSendOTPPage = '/register_by_email_send_otp_page';
 
   @override
   List<GetPage> getRoutes() {

@@ -51,7 +51,6 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             /// 路由
             getPages: WeRouteManager.routes,
-            unknownRoute: WeRouteManager.homePageRoute, //WeRouteManager.notFoundRoute,
             theme: ThemeData(
               useMaterial3: true,
               textSelectionTheme: TextSelectionThemeData(
@@ -89,6 +88,7 @@ class _MyAppState extends State<MyApp> {
               }
               return const Locale('en', '');
             },
+            unknownRoute: WeRouteManager.notFoundRoute,
             initialRoute: NavigatorUtils.initRoute(),
             defaultTransition: Transition.fade,
             builder: EasyLoading.init(builder: (c, w) {
@@ -108,24 +108,6 @@ class _MyAppState extends State<MyApp> {
         },
       ),
     );
-    // return GetMaterialApp(
-    //     localizationsDelegates: const [
-    //       S.delegate,
-    //       GlobalMaterialLocalizations.delegate,
-    //       GlobalWidgetsLocalizations.delegate,
-    //       GlobalCupertinoLocalizations.delegate,
-    //       DefaultCupertinoLocalizations.delegate,
-    //     ],
-    //     locale: Locale(currentLanguage, ''),
-    //     supportedLocales: S.delegate.supportedLocales,
-    //     title: 'My App',
-    //     theme: ThemeData(
-    //       primarySwatch: Colors.grey,
-    //     ),
-    //     debugShowCheckedModeBanner: false,
-    //   initialRoute: NavigatorUtils.initRoute(),
-    //   defaultTransition: Transition.fade,
-    // );
   }
 
   void hideKeyboard(BuildContext context) {

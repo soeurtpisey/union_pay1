@@ -4,11 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
-import 'package:union_pay/models/auth/phone_verify_model.dart';
 import 'package:union_pay/pages/auth/login_by_email_page.dart';
 import 'package:union_pay/pages/auth/select_country_code.dart';
 import '../../http/net/http_exceptions.dart';
-import '../../models/auth/email_verify_model.dart';
 import '../../repositories/prepaid_repository.dart';
 import '../../repositories/user_repository.dart';
 import '../../route/app_route.dart';
@@ -111,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                     Icons.keyboard_arrow_down_sharp,
                     prefixFontSize: 16.0,
                     iconColor: AppColors.primaryColor,
-                    content: '+' + selectedCode + ' ',
+                    content: '+$selectedCode ',
                     onTap: () {
                       showSheet(
                           context,
