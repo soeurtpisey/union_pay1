@@ -9,7 +9,7 @@ import 'package:union_pay/models/auth/email_verify_model.dart';
 import 'package:union_pay/repositories/user_repository.dart';
 import 'package:union_pay/res/images_res.dart';
 import 'package:union_pay/route/base_route.dart';
-import 'package:union_pay/widgets/app_input_textfield.dart';
+import 'package:union_pay/widgets/app_non_border_text_input.dart';
 import 'package:union_pay/widgets/common.dart';
 import '../../route/app_route.dart';
 
@@ -69,7 +69,7 @@ class _RegisterByEmailSendOPTPageState extends State<RegisterByEmailSendOPTPage>
                   ],
                 ),
               ),
-              AppTextInput(
+              AppNonBorderTextInput(
                 isRequiredField: true,
                 onTextChanged: (text) {
                   checkEnableNextButton();

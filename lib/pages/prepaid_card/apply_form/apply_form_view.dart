@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:union_pay/extensions/string_extension.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
+import 'package:union_pay/pages/prepaid_card/apply_pre/apply_pre_view.dart';
 import 'package:union_pay/res/images_res.dart';
 
 import '../../../constants/style.dart';
@@ -57,32 +58,30 @@ class _ApplyFormPageState extends State<ApplyFormPage> {
 
   @override
   Widget build(BuildContext context) {
-    return baseScaffold(context, S.of(context).apply_prepaid_card,
+    return cScaffold(context, S.of(context).apply_prepaid_card,
         backgroundColor: AppColors.colorE9EBF5,
         appBarBgColor: AppColors.colorE9EBF5,
         resizeToAvoidBottomInset: true,
         child: GetBuilder(
             init: logic,
             builder: (viewModel) {
-              return Column(
-                children: [
-                  _buildCardInfo(context),
-                  //user_info
-                  _buildUserInfo(context),
-                  Gaps.vGap20,
-                  btnWithLoading(
-                      title: S.of(context).confirm,
-                      isEnable: state.isContinue.value,
-                      onTap: () async {
-                        if (await logic.onNextEvent()) {
-                          /// warning
-                          // await context.pushRoute(ApplyPrePageRoute(
-                          //     configModel: state.configModel,
-                          //     requestParam: state.requestParam));
-                        }
-                      }),
-                  Gaps.vGap30,
-                ],
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _buildCardInfo(context),
+                    _buildUserInfo(context),
+                    Gaps.vGap20,
+                    btnWithLoading(
+                        title: S.of(context).confirm,
+                        isEnable: state.isContinue.value,
+                        onTap: () async {
+                          if (await logic.onNextEvent()) {
+                            Get.to(ApplyPrePage(configModel: state.configModel, requestParam: state.requestParam));
+                          }
+                        }),
+                    Gaps.vGap30,
+                  ],
+                ),
               );
             }));
   }
@@ -262,7 +261,7 @@ class _ApplyFormPageState extends State<ApplyFormPage> {
                             fontSize: 16,
                             color: Colors.black)
                         .intoExpend(),
-                Icon(
+                const Icon(
                   Icons.arrow_drop_down,
                   color: Colors.black,
                   size: 24,
@@ -376,7 +375,7 @@ class _ApplyFormPageState extends State<ApplyFormPage> {
                       ))
                 ],
               ).intoContainer(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimens.gap_dp8),
                   border: Border.all(width: 1, color: AppColors.colorDEDEDE),

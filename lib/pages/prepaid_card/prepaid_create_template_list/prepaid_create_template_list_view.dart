@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:union_pay/extensions/double_extension.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
+import 'package:union_pay/models/prepaid/enums/union_card_transfer_type.dart';
+import 'package:union_pay/pages/prepaid_card/prepaid_create_template/prepaid_create_template_view.dart';
 import '../../../generated/l10n.dart';
 import '../../../utils/custom_decoration.dart';
 import '../../../widgets/common.dart';
@@ -37,9 +39,7 @@ class _PrepaidCreateTemplateListPageState
           mainAxisSize: MainAxisSize.min,
           children: [
             arrowUnderLineItem(S.current.transfer_to_bongloy_card, onTap: () {
-              /// warning
-              // context.router.push(PrepaidCreateTemplatePageRoute(
-              //     transferType: UnionCardTransferType.toBonglogCard.value));
+              Get.to(PrepaidCreateTemplatePage(transferType: UnionCardTransferType.toBonglogCard.value));
             }, needUnderLine: false),
           ],
         ).intoContainer(

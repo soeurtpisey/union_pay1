@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
 import 'package:union_pay/models/auth/phone_verify_model.dart';
 import 'package:union_pay/pages/auth/select_country_code.dart';
-import '../../constants/style.dart';
+import 'package:union_pay/widgets/app_non_border_text_input.dart';
 import '../../generated/l10n.dart';
 import '../../helper/colors.dart';
 import '../../models/auth/email_verify_model.dart';
@@ -13,7 +13,6 @@ import '../../repositories/user_repository.dart';
 import '../../route/app_route.dart';
 import '../../route/base_route.dart';
 import '../../utils/view_util.dart';
-import '../../widgets/app_input_textfield.dart';
 import '../../widgets/common.dart';
 import '../../widgets/country_selection/code_country.dart';
 import '../../widgets/prefix_icon.dart';
@@ -174,7 +173,7 @@ class _ForgetPasswordOTPPageState extends State<ForgetPasswordOTPPage> {
                     fontWeight: FontWeight.w500),
               )
                   :
-              AppTextInput(
+              AppNonBorderTextInput(
                 isRequiredField: true,
                 onTextChanged: (text) {
                   checkEnableRegisterButton();

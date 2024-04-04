@@ -5,16 +5,13 @@ import 'package:get/get.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
 import 'package:union_pay/http/net/dio_new.dart';
 import 'package:union_pay/models/auth/email_register_model.dart';
-import 'package:union_pay/models/auth/email_verify_model.dart';
 import 'package:union_pay/utils/encrypt_util.dart';
+import 'package:union_pay/widgets/app_non_border_text_input.dart';
 import '../../repositories/user_repository.dart';
-import '../../route/app_route.dart';
-import '../../route/base_route.dart';
 import '../../constants/style.dart';
 import '../../generated/l10n.dart';
 import '../../helper/colors.dart';
 import '../../res/images_res.dart';
-import '../../widgets/app_input_textfield.dart';
 import '../../widgets/common.dart';
 import '../home/home_page.dart';
 
@@ -89,7 +86,7 @@ class _RegisterByEmailPageState extends State<RegisterByEmailPage> {
                 ),
               ),
               Gaps.vGap16,
-              AppTextInput(
+              AppNonBorderTextInput(
                 isRequiredField: true,
                 onTextChanged: (text) {
                   checkEnableRegisterButton();
@@ -114,7 +111,7 @@ class _RegisterByEmailPageState extends State<RegisterByEmailPage> {
                 ),
               ),
               Gaps.vGap16,
-              AppTextInput(
+              AppNonBorderTextInput(
                 isRequiredField: true,
                 onTextChanged: (text) {
                   checkEnableRegisterButton();

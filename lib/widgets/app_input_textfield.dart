@@ -1,10 +1,11 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../helper/colors.dart';
-import 'common.dart';
+import 'package:union_pay/extensions/widget_extension.dart';
+import 'package:union_pay/helper/colors.dart';
+import 'package:union_pay/widgets/common.dart';
 
-class AppTextInput extends StatelessWidget {
+class AppTextInput extends StatefulWidget {
   final Widget? prefixIcon;
   final String? hint;
   final Function(String)? onTextChanged;
@@ -23,85 +24,128 @@ class AppTextInput extends StatelessWidget {
   final bool isError;
   final Widget? suffixIcon;
   final String? errorText;
-  final List<TextInputFormatter>? inputFormatters;
-  final int? maxLines;
   final int? maxLength;
+  final int? maxLines;
+  final bool? isUnderline;
+  final List<TextInputFormatter>? inputFormatters;
 
-  const AppTextInput({
-    Key? key,
-    this.prefixIcon,
-    this.hint,
-    this.onTextChanged,
-    this.controller,
-    this.securedTextEntry = false,
-    this.style,
-    this.hintStyle,
-    this.onTap,
-    this.enabled = true,
-    this.focusNode,
-    this.keyboardType = TextInputType.text,
-    this.padding = const EdgeInsets.symmetric(vertical: 11, horizontal: 20),
-    this.validator,
-    this.textCapitalization = TextCapitalization.none,
-    this.isRequiredField = false,
-    this.isError = false,
-    this.suffixIcon,
-    this.errorText,
-    this.inputFormatters,
-    this.maxLines,
-    this.maxLength
+  const AppTextInput(
+      {super.key,
+      this.prefixIcon,
+      this.hint,
+      this.onTextChanged,
+      this.controller,
+      this.securedTextEntry = false,
+      this.style,
+      this.hintStyle,
+      this.onTap,
+      this.enabled = true,
+      this.isUnderline = false,
+      this.focusNode,
+      this.maxLength,
+      this.maxLines,
+      this.inputFormatters,
+      this.keyboardType = TextInputType.text,
+      this.padding = const EdgeInsets.symmetric(vertical: 22, horizontal: 20),
+      this.validator,
+      this.textCapitalization = TextCapitalization.none,
+      this.isRequiredField = false,
+      this.isError = false,
+      this.suffixIcon,
+      this.errorText});
 
+  @override
+  State<AppTextInput> createState() => _AppTextInputState();
+}
 
-  }) : super(key: key);
+class _AppTextInputState extends State<AppTextInput> {
+  var _showClear = false;
+
+  InputBorder getInputBorder(Color color) {
+    return widget.isUnderline == true
+        ? UnderlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(color: color, width: 0.5),
+    )
+        : OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(color: color, width: 0.5),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    Widget? suffixIcon;
+    if (widget.suffixIcon == null) {
+      suffixIcon = _showClear
+          ? InkWell(
+          onTap: () {
+            setState(() {
+              widget.controller?.clear();
+              widget.onTextChanged?.call('');
+              _showClear = false;
+            });
+          },
+          child: const Icon(Icons.cancel, size: 24.0, color: Color(0xffcccccc))
+              .intoContainer(padding: const EdgeInsets.symmetric(horizontal: 5)))
+          : null;
+    } else {
+      suffixIcon = widget.suffixIcon;
+    }
     return TextFormField(
-      focusNode: focusNode,
-      onTap: onTap,
-      enabled: enabled,
-      maxLength: maxLength,
-      textCapitalization: textCapitalization,
-      key: key,
-      onChanged: onTextChanged,
-      validator: validator,
+      focusNode: widget.focusNode,
+      onTap: widget.onTap,
+      maxLength: widget.maxLength,
+      enabled: widget.enabled,
+      textCapitalization: widget.textCapitalization,
+      key: widget.key,
+      onChanged: (value) {
+        widget.onTextChanged?.call(value);
+        setState(() {
+          _showClear = value.isNotEmpty;
+        });
+      },
+      validator: widget.validator,
       cursorColor: AppColors.color1D1B20,
       cursorHeight: 20,
       cursorRadius: const Radius.circular(10),
       cursorWidth: 2,
-      controller: controller,
-      style: style,
-      keyboardType: keyboardType,
-      obscureText: securedTextEntry,
-      inputFormatters: inputFormatters,
+      controller: widget.controller,
+      style: widget.style,
+      maxLines: widget.maxLines,
+      inputFormatters: widget.inputFormatters,
+      keyboardType: widget.keyboardType,
+      obscureText: widget.securedTextEntry,
       decoration: InputDecoration(
-          errorText: errorText,
-          filled: true,
-          fillColor: Colors.white,
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(6.0), // Adjust the radius as needed
-          ),
-          prefixIcon: prefixIcon,
-          hintStyle: const TextStyle(color: AppColors.color79747E, fontSize: 12),
-          contentPadding: padding,
-          suffixIcon: Align(
-              widthFactor: 0.5,
-              heightFactor: 0.5,
-              child: suffixIcon
-          ),
-          label: FittedBox(child:
-          Row(children: [
-            cText(hint ?? '', fontSize: 14, color: (isError) ? AppColors.colorB3261E : AppColors.color79747E, maxLine: maxLines),
-            isRequiredField ?
-                Padding(
-                  padding: const EdgeInsets.only(left: 5),
-                    child: cText('*', fontSize: 18, color: Colors.red)
-                )
-                : const SizedBox()])),
-          labelStyle: const TextStyle(fontSize: 14, color: AppColors.color1D1B20),
-          floatingLabelBehavior: FloatingLabelBehavior.never),
+          errorText: widget.errorText,
+          disabledBorder: getInputBorder(AppColors.color79747E),
+          enabledBorder: getInputBorder(AppColors.color79747E),
+          border: widget.isError
+              ? getInputBorder(AppColors.colorB3261E)
+              : getInputBorder(AppColors.color79747E),
+          focusedBorder: getInputBorder(AppColors.color79747E),
+          errorBorder: getInputBorder(AppColors.colorB3261E),
+          prefixIcon: widget.prefixIcon,
+          hintStyle:
+          const TextStyle(color: AppColors.color79747E, fontSize: 16),
+          contentPadding: widget.padding,
+          suffixIcon:
+          Align(widthFactor: 0.5, heightFactor: 0.5, child: suffixIcon),
+          label: FittedBox(
+              child: Row(children: [
+                cText(widget.hint ?? '',
+                    fontSize: 16,
+                    color: (widget.isError)
+                        ? AppColors.colorB3261E
+                        : AppColors.color79747E),
+                widget.isRequiredField
+                    ? cText('*', fontSize: 18, color: AppColors.colorB3261E)
+                    : const SizedBox()
+              ])),
+          labelStyle:
+          const TextStyle(fontSize: 16, color: AppColors.color1D1B20),
+          floatingLabelBehavior: FloatingLabelBehavior.auto),
       scrollPadding: EdgeInsets.zero,
     );
   }
 }
-

@@ -5,6 +5,7 @@ import 'package:union_pay/extensions/widget_extension.dart';
 import 'package:union_pay/pages/auth/register_by_email_page.dart';
 import 'package:union_pay/pages/auth/register_by_email_send_otp_page.dart';
 import 'package:union_pay/pages/auth/select_country_code.dart';
+import 'package:union_pay/widgets/app_non_border_text_input.dart';
 import '../../constants/style.dart';
 import '../../generated/l10n.dart';
 import '../../helper/colors.dart';
@@ -15,7 +16,6 @@ import '../../res/images_res.dart';
 import '../../route/app_route.dart';
 import '../../route/base_route.dart';
 import '../../utils/view_util.dart';
-import '../../widgets/app_input_textfield.dart';
 import '../../widgets/common.dart';
 import '../../widgets/country_selection/code_country.dart';
 import '../../widgets/prefix_icon.dart';
@@ -167,7 +167,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 fontWeight: FontWeight.w500),
           ),
           Gaps.vGap16,
-          AppTextInput(
+          AppNonBorderTextInput(
             isRequiredField: true,
             onTextChanged: (text) {
               checkEnableRegisterButton();
@@ -192,7 +192,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
           Gaps.vGap16,
-          AppTextInput(
+          AppNonBorderTextInput(
             isRequiredField: true,
             onTextChanged: (text) {
               checkEnableRegisterButton();

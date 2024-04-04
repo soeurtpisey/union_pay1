@@ -281,5 +281,6 @@
 "get_otp": "Get OTP",
 "choose_language": "Choose language",
 "email_already_exits": "This email is already registered.",
-"set_password": "Set Password"
+"set_password": "Set Password",
+  "freeze_successfully": "Freeze successfully"
 }

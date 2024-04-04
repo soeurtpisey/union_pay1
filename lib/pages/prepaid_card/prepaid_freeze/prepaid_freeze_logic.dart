@@ -1,6 +1,7 @@
 
 import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:union_pay/pages/prepaid_card/prepaid_result/prepaid_result_view.dart';
 import '../../../generated/l10n.dart';
 import '../../../helper/prepaid_card_helper.dart';
 import '../../../http/net/api_exception.dart';
@@ -17,12 +18,7 @@ class PrepaidFreezeLogic extends GetxController {
       await _prepaidRepository.freezeCard(id: id);
       PrepaidCardHelper.updateCardInfo(id,
           cardStatus: UnionCardState.FREEZE.value);
-      /// warning
-      // final logic = Get.put(WalletManageLogic());
-      // logic.update();
-      // await getIt<AppRouter>().root.replace(PrepaidResultPageRoute(
-      //     title: S.current.freeze_card,
-      //     description: S.current.freeze_successfully));
+      Get.replace(PrepaidResultPage(title: S.current.freeze_card, description: S.current.freeze_successfully));
     } on ApiException catch (error) {
       showToast(S.current.request_error);
     } catch (e) {}

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:union_pay/pages/prepaid_card/prepaid_activate_form/prepaid_activate_form_state.dart';
+import 'package:union_pay/pages/prepaid_card/prepaid_atm_password/prepaid_atm_password_view.dart';
 import '../../../generated/l10n.dart';
 import '../../../helper/colors.dart';
 import '../../../models/prepaid/res/union_pay_card_res_model.dart';
@@ -69,10 +70,7 @@ class _PrepaidActivateFormPageState extends State<PrepaidActivateFormPage> {
                     circular: Dimens.gap_dp12,
                     onTap: (){
                       if (logic.onNextEvent()) {
-                        /// warning
-                        // context.pushRoute(PrepaidAtmPasswordPageRoute(
-                        //     unionPayCardActiveParamModel:
-                        //     state.unionPayCardActiveParamModel));
+                        Get.to(PrepaidAtmPasswordPage(unionPayCardActiveParamModel: state.unionPayCardActiveParamModel));
                       }
                     }),
               )

@@ -5,7 +5,9 @@ import 'package:union_pay/extensions/widget_extension.dart';
 import 'package:union_pay/pages/prepaid_card/apply_card/apply_card_view.dart';
 import 'package:union_pay/pages/prepaid_card/apply_form/apply_form_view.dart';
 import 'package:union_pay/pages/prepaid_card/apply_form_old/apply_form_old_view.dart';
+import 'package:union_pay/pages/prepaid_card/prepaid_manager/prepaid_manager_view.dart';
 import 'package:union_pay/utils/view_util.dart';
+import 'package:union_pay/widgets/prepaid_card/form_common.dart';
 import '../../app/base/app.dart';
 import '../../constants/style.dart';
 import '../../generated/l10n.dart';
@@ -159,13 +161,10 @@ class _MyCardPageState extends State<MyCardPage> {
   }
 
   void pushFormPage(BuildContext context, UnionCardType unionCardType) {
-    /// warning
     if (PrepaidCardHelper.blCardList.isEmpty) {
       Get.to(ApplyFormPage(unionCardType: unionCardType));
-      // context.router.push(ApplyFormPageRoute(unionCardType: unionCardType));
     } else {
       Get.to(ApplyFormOldPage(unionCardType: unionCardType));
-      // context.router.push(ApplyFormOldPageRoute(unionCardType: unionCardType));
     }
   }
 
@@ -199,7 +198,7 @@ class _MyCardPageState extends State<MyCardPage> {
     return [
       SliverToBoxAdapter(
         child: Container(
-            padding: EdgeInsets.only(left: 18, top: 21),
+            padding: const EdgeInsets.only(left: 18, top: 21),
             color: Colors.white,
             child: cText(S.of(context).my_card,
                 textAlign: TextAlign.start,
@@ -214,18 +213,17 @@ class _MyCardPageState extends State<MyCardPage> {
           (BuildContext context, int index) {
             var model = PrepaidCardHelper.blCardList[index];
             /// update later
-            return Container();
-            // return cardView(context, model, cardNumVisible: true, onDetail: () {
-            //   context.pushRoute(PrepaidManagerPageRoute(model: model));
-            // }).intoContainer(
-            //     height: 206,
-            //     margin: EdgeInsets.only(
-            //         left: 16,
-            //         right: 16,
-            //         top: 15,
-            //         bottom: index == PrepaidCardHelper.blCardList.length - 1
-            //             ? 15
-            //             : 0));
+            return cardView(context, model, cardNumVisible: true, onDetail: () {
+              Get.to(PrepaidManagerPage(model: model));
+            }).intoContainer(
+                height: 206,
+                margin: EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    top: 15,
+                    bottom: index == PrepaidCardHelper.blCardList.length - 1
+                        ? 15
+                        : 0));
           },
           childCount: PrepaidCardHelper.blCardList.length,
         )),

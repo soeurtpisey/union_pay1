@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:union_pay/extensions/string_extension.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
+import 'package:union_pay/pages/home/home_page.dart';
 import 'package:union_pay/res/images_res.dart';
 import '../../../constants/style.dart';
 import '../../../generated/l10n.dart';

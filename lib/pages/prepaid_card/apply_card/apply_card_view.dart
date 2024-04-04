@@ -41,15 +41,9 @@ class _ApplyCardPageState extends State<ApplyCardPage> {
             _buildItem(ImagesRes.IC_VIRTUAL_CARD,
                 S().virtual_card_application, '', onTap: () {
               if (PrepaidCardHelper.blCardList.isEmpty) {
-                /// warning
                 Get.to(ApplyFormPage(unionCardType: UnionCardType.virtualCard), arguments: UnionCardType.virtualCard);
-                // context.pushRoute(ApplyFormPageRoute(
-                //     unionCardType: UnionCardType.virtualCard));
               } else {
-                /// warning
                 Get.to(const ApplyFormOldPage(unionCardType: UnionCardType.virtualCard));
-                // context.pushRoute(ApplyFormOldPageRoute(
-                //     unionCardType: UnionCardType.virtualCard));
               }
             }),
             _buildItem(
@@ -58,26 +52,16 @@ class _ApplyCardPageState extends State<ApplyCardPage> {
                 '', onTap: () async {
               if (isAdminApplyCard) {
                 if(PrepaidCardHelper.blCardList.isEmpty) {
-                  /// warning
                   Get.to(ApplyFormPage(), arguments: UnionCardType.physicalCard);
-                  // await context.pushRoute(ApplyFormPageRoute(
-                  //     unionCardType: UnionCardType.physicalCard));
                 } else {
-                  /// warning
                   Get.to(const ApplyFormOldPage(), arguments: UnionCardType.physicalCard);
-                  // await context.pushRoute(ApplyFormOldPageRoute(
-                  //     unionCardType: UnionCardType.physicalCard));
                 }
               } else {
                 if (await logic.checkStatus()) {
                   if (PrepaidCardHelper.blCardList.isEmpty) {
-                    /// warning
-                    // await context.pushRoute(ApplyFormPageRoute(
-                    //     unionCardType: UnionCardType.physicalCard));
+                    Get.to(ApplyFormPage(unionCardType: UnionCardType.physicalCard));
                   } else {
-                    /// warning
-                    // await context.pushRoute(ApplyFormOldPageRoute(
-                    //     unionCardType: UnionCardType.physicalCard));
+                    Get.to(const ApplyFormOldPage(unionCardType: UnionCardType.physicalCard));
                   }
                 } else {
                   Notify.info(

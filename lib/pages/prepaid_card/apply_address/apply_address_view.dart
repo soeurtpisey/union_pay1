@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:union_pay/pages/prepaid_card/apply_pre/apply_pre_view.dart';
 import '../../../generated/l10n.dart';
 import '../../../models/prepaid/enums/union_card_type.dart';
 import '../../../models/prepaid/union_pay_apply_param_model.dart';
@@ -50,10 +51,7 @@ class _ApplyAddressPageState extends State<ApplyAddressPage> {
                     isEnable: state.isContinue.value, onTap: () async {
                   var isCanNext = await logic.onNextEvent(widget.unionCardType);
                   if (isCanNext) {
-                    /// warning
-                    // await context.pushRoute(ApplyPrePageRoute(
-                    //     configModel: state.configModel,
-                    //     requestParam: state.requestParam));
+                    Get.to(ApplyPrePage(configModel: state.configModel, requestParam: state.requestParam));
                   }
                   //确认阶段
                 }))

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
+import 'package:union_pay/pages/prepaid_card/apply_pre/apply_pre_view.dart';
 import '../../../constants/style.dart';
 import '../../../generated/l10n.dart';
 import '../../../helper/colors.dart';
@@ -68,10 +69,7 @@ class _ApplyFormOldPageState extends State<ApplyFormOldPage> {
                           var isCan =
                           await logic.onNextEvent(widget.unionCardType);
                           if (isCan) {
-                            /// warning
-                            // await context.router.push(ApplyPrePageRoute(
-                            //     configModel: state.configModel,
-                            //     requestOldParam: state.requestParam));
+                            Get.to(ApplyPrePage(configModel: state.configModel, requestOldParam: state.requestParam));
                           }
                         }),
                   ))

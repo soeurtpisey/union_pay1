@@ -47,6 +47,10 @@ class ApplyPreLogic extends GetxController {
             //     route.settings.name == WalletManagePageRoute.name ||
             //     route.settings.name == DashboardPageRoute.name);
             // return;
+            // getIt<AppRouter>().root.popUntil((route) =>
+            //     route.settings.name == WalletManagePageRoute.name ||
+            //     route.settings.name == DashboardPageRoute.name);
+            // return;
           }
         }
       }

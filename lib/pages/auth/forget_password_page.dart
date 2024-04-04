@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
+import 'package:union_pay/widgets/app_non_border_text_input.dart';
 import '../../models/auth/forget_password_model.dart';
 import '../../repositories/user_repository.dart';
 import '../../route/app_route.dart';
@@ -12,7 +13,6 @@ import '../../constants/style.dart';
 import '../../generated/l10n.dart';
 import '../../helper/colors.dart';
 import '../../res/images_res.dart';
-import '../../widgets/app_input_textfield.dart';
 import '../../widgets/common.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
@@ -86,7 +86,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   ],
                 ),
               ),
-              AppTextInput(
+              AppNonBorderTextInput(
                 isRequiredField: true,
                 onTextChanged: (text) {
                   checkEnableButton();
@@ -111,7 +111,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                 ),
               ),
               Gaps.vGap16,
-              AppTextInput(
+              AppNonBorderTextInput(
                 isRequiredField: true,
                 onTextChanged: (text) {
                   checkEnableButton();

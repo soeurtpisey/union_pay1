@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
+import 'package:union_pay/widgets/app_non_border_text_input.dart';
 import '../../http/net/http_exceptions.dart';
 import '../../repositories/user_repository.dart';
 import '../../constants/style.dart';
@@ -11,7 +12,6 @@ import '../../helper/colors.dart';
 import '../../res/images_res.dart';
 import '../../route/app_route.dart';
 import '../../route/base_route.dart';
-import '../../widgets/app_input_textfield.dart';
 import '../../widgets/common.dart';
 import '../home/home_page.dart';
 
@@ -76,7 +76,7 @@ class _LoginByEmailPageState extends State<LoginByEmailPage> {
                   ],
                 ),
               ),
-              AppTextInput(
+              AppNonBorderTextInput(
                 isRequiredField: true,
                 onTextChanged: (text) {
                   checkEnableRegisterButton();
@@ -86,7 +86,7 @@ class _LoginByEmailPageState extends State<LoginByEmailPage> {
                 keyboardType: TextInputType.text,
               ),
               Gaps.vGap16,
-              AppTextInput(
+              AppNonBorderTextInput(
                 isRequiredField: true,
                 onTextChanged: (text) {
                   checkEnableRegisterButton();

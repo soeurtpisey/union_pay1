@@ -220,28 +220,6 @@ Widget buildForm({required List<Widget> children, String? title}) {
   );
 }
 
-Widget baseScaffold(
-  BuildContext context,
-  String title, {
-  Widget? child,
-  bool resizeToAvoidBottomInset = false,
-  Color? appBarBgColor,
-  Color? appBarColor,
-  Color? backgroundColor,
-}) {
-  return cScaffold(
-    context,
-    title,
-    backgroundColor: backgroundColor,
-    appBarBgColor: appBarBgColor,
-    appBarColor: appBarColor,
-    resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-    child: SingleChildScrollView(
-      child: child,
-    ).intoScrollConfiguration(),
-  );
-}
-
 Widget cardView(BuildContext context, UnionPayCardResModel model,
     {bool? cardNumVisible = true,
     VoidCallback? onVisibleClick,

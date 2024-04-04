@@ -6,6 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:union_pay/extensions/widget_extension.dart';
 import 'package:union_pay/pages/auth/login_by_email_page.dart';
 import 'package:union_pay/pages/auth/select_country_code.dart';
+import 'package:union_pay/widgets/app_non_border_text_input.dart';
 import '../../http/net/http_exceptions.dart';
 import '../../repositories/prepaid_repository.dart';
 import '../../repositories/user_repository.dart';
@@ -16,7 +17,6 @@ import '../../generated/l10n.dart';
 import '../../helper/colors.dart';
 import '../../res/images_res.dart';
 import '../../utils/view_util.dart';
-import '../../widgets/app_input_textfield.dart';
 import '../../widgets/common.dart';
 import '../../widgets/country_selection/code_country.dart';
 import '../../widgets/prefix_icon.dart';
@@ -152,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                 fontWeight: FontWeight.w500),
           ),
           Gaps.vGap16,
-          AppTextInput(
+          AppNonBorderTextInput(
             isRequiredField: true,
             onTextChanged: (text) {
               checkEnableLoginButton();
